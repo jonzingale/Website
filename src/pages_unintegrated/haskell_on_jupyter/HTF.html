@@ -1,0 +1,129 @@
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Haskell Test Framework:</h2>
+The <code>Haskell Test Framework</code> (<code>HTF</code>) supplies unit tests via <code>HUnit</code> and
+property tests via <code>QuickCheck</code>. The following code describes some of the
+functionality one may find in the test suite for the <code>Attenuations</code> project.
+Some other useful tutorials can be found here:
+<ul>
+  <li><a href="http://hackage.haskell.org/package/HTF-0.13.2.4/docs/Test-Framework-Tutorial.html">HTF hackage tutorial</a></li>
+  <li><a href="https://wiki.haskell.org/HUnit_1.0_User%27s_Guide">HUnit user guide for assertion details</a></li>
+  <li><a href="https://github.com/skogsbaer/HTF/tree/master/sample">A directory structure example</a></li>
+  <li><a href="http://www.cse.chalmers.se/~rjmh/QuickCheck/manual.html">A QuickCheck guide</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt"></div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+At the top level one can safely disentangle functionality from testing
+by creating a <code>RayTracer</code> directory for the former and a <code>Tests</code> directory
+for the latter. Now by creating a <code>TestMain.hs</code> with the following lines,
+one can import the tests and the modules independently as-well-as define
+sub-suites to run individually.
+<pre><code>{-# OPTIONS_GHC -F -pgmF htfpp #-}
+
+module AttenuationTest where
+import RayTracer.RayLength
+import RayTracer.Lattice
+import RayTracer.Rhythm
+import Test.Framework
+
+import {-@ HTF_TESTS @-} Tests.IndexerTests
+import {-@ HTF_TESTS @-} Tests.SymmetryTests
+import {-@ HTF_TESTS @-} Tests.XRegionTests
+
+main = htfMain htf_importedTests
+
+symmetryTests = htfMain htf_Tests_SymmetryTests_thisModulesTests
+indexerTests = htfMain htf_Tests_IndexerTests_thisModulesTests
+xRegionTests = htfMain htf_Tests_XRegionTests_thisModulesTests</code></pre>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt"></div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3>Some Subtleties.</h3>
+<strong>QuickCheck versus HUnit:</strong>
+
+From <code>ghci</code> one can perform a <code>quickCheck</code> on any property test, <code>prop_</code> prefixed,
+by running something akin to <code>quickCheck prop_someProperty</code>. To run a specific unit
+test, simply call the test method directly:
+<pre><code>test_rabbits :: IO ()
+test_rabbits = do
+  let rhythm = take 15 $ rabbits (5,3)
+  assertEqual rhythm ".rLrrLr.rLrrLr."</code></pre>
+In some cases, one may wish to build a small unit test suite:
+<pre><code>import Test.HUnit
+
+test1 = TestCase test_rabbits
+test2 = TestCase test_someotherFunction
+
+tests = TestList [TestLabel "rabbits" test1,
+                  TestLabel "another" test2]
+
+runSmallSuite = runTestTT tests</code></pre>
+Which then returns something like:
+<pre><code>Cases: 2  Tried: 2  Errors: 0  Failures: 0
+Counts {cases = 2, tried = 2, errors = 0, failures = 0}</code></pre>
+<strong>Limiting the Range of Test Data:</strong>
+
+It may often be the case that a functions domain of validity is limited
+to a small subset of its range and testing outside of that range isn't
+very useful. The <code>choose</code> function makes it possible to limit the range
+of test values while maintaining statistical randomness. For instance,
+verifying that <code>cos (π/2-θ)</code> is the same as <code>sin θ</code> for values between
+0 and 2π can be tested:
+<pre><code>tol :: Double -> Integer
+tol d = round $ d * 10^12
+
+prop_cosToSin = do
+  θ <- choose (0, 2*pi)
+  return $ (tol.cos) (pi/2 - θ) == (tol.sin) θ</code></pre>
+where <code>tol</code> allows for some wiggle room in the approximation.
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt"></div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3>Playing and then Replaying a test.</h3>
+Occasionally a test will fail. Along with the error when a test fails
+will be a <code>Replay</code> string allowing intentional seeding when replaying
+a given test.
+<pre><code>replayArg = "Just (TFGenR 15067B55359906C0776B9C0A73ACEE7D9C124B4AE3DAC3AFCB451E04B1EF7BD1 0 31 5 0,28)"</code></pre>
+Now, to replay the failed <code>prop_cosToSin</code> test above one only needs to supply
+the replayArg above in a new method, <code>prop_cosToSinReplay</code>:
+<pre><code>prop_cosToSinReplay =
+  withQCArgs (\a -> a { replay = read replayArg })
+  prop_cosToSin
+
+main = htfMain htf_Tests_SymmetryTests_thisModulesTests</code></pre>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt"></div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3>Fairly General Algebraic Testing:</h3>
+One of the coolest examples I have seen this far concerns testing
+algebraic properties like the associativity of function composition
+By importing <code>Text.Show.Functions</code> one can even test this property
+with amazingly clean style:
+<pre><code>import Text.Show.Functions
+
+prop_ComposeAssoc f g h x =
+  ((f . g) . h) x == (f . (g . h)) x
+  where types = [f, g, h] :: [Int->Int]</code></pre>
+</div>
+</div>
+</div>

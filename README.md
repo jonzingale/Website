@@ -1,0 +1,4 @@
+# Website
+
+## Setup
+`npm start`

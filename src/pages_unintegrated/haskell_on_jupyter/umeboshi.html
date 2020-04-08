@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<meta charset="utf-8"></meta>
+<html lang="en-us">
+  <head>
+
+    <link href="./../css/main.css" rel="stylesheet" type="text/css"></link>
+    <script src="/js/d3.v4.min.js" type="text/javascript"></script>
+    <script src="/js/d3-scale-chromatic.v1.min.js"></script>
+  </head>
+  <body>
+    <h1>Umeboshi</h1>
+    <img class="header-img" src="./../assets/umeboshi.png" alt="umeboshi" />
+
+    Umeboshi is a drum machine written in Haskell and built from a Roland 808 sound bank. The drum machine is designed to facilitate poly-rhythmic percussion in non-standard time signatures. It relies heavily on Unboxed Vector types and the Data.WAVE library.
+
+    By design, most drum machines facilitate writing drum patterns in common 3/4 and 4/4 time signatures and render the ability to have more unusual rhythms such as an even pentuplet over three quarter notes nearly impossible. This limitation has a coercive effect on the forms of music typically made with drum machines. Umeboshi is an attempt to fill the gap left by such design choices.
+
+    Methods such as buildMeasure allow users to write a pentuplet over a three quarter note measure as easily as:
+
+    <code>buildMeasure 122 (Time 3 4) [("xxxxx", conga)]</code>
+
+    By passing a length five string of either <code>'.'</code> or <code>'x'</code> and instrument type <code>conga</code>, umeboshi determines that a conga should be played evenly five times over the 3/4 measure. The function <code>makeWavFile</code> (thanks to the wonderful Data.WAVE library) then can produce a wav file of the constructed rhythm.
+
+    For a more elaborate example, let's take a measure of 5/4 and layer a hi tom triplet evenly over the measure, a snare tuplet and otherwise maracas on every other of the underlying quarter notes:
+    <pre><code>
+    layeredExample = do
+      [hiTom, maracas, snare] <- roland808
+      let ensemble1 = [("xxx", hiTom),("xx", snare),("x.x.x", maracas)]
+      let measure = buildMeasure 122 (Time 5 4) ensemble1
+
+      makeWavFile measure
+    </code></pre>
+    For the gritty details see this project on GitHub: <a href="https://github.com/jonzingale/Haskell/tree/master/Audio/umeboshi">Umeboshi</a>
+
+  </body>
+</html>

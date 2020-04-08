@@ -1,0 +1,120 @@
+<h1 id="From-Listable-to-Sortable">From Listable to Sortable</h1>
+Once there is a notion of <code>Listable</code> with its methods acting on its instances like lists,
+the notion of <code>Sortable</code> is a natural extension. Here I extend <code>Listables</code> to have behaviors such as <code>sort</code> and <code>shuffle</code>. The <code>sort</code> is a quicksort and the <code>shuffle</code> is a key shuffle.
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-haskell">
+<pre><span class="kr">import</span> <span class="nn">System.Random</span>
+<span class="kt">:</span><span class="n">l</span> <span class="kt">Listable</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt"></div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+<code>System.Random</code> is imported here as a method for producing a stream of random numbers is required for a key shuffle.
+
+The next few lines gives a function which produces such a stream. Notice, I am not yet concerned about a random seed.
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-haskell">
+<pre><span class="nf">randos</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">Integer</span><span class="p">]</span>
+<span class="nf">randos</span> <span class="ow">=</span> <span class="n">randomRs</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="o">^</span><span class="mi">6</span><span class="p">)</span> <span class="o">$</span> <span class="n">mkStdGen</span> <span class="mi">32</span>
+
+<span class="nf">take</span> <span class="mi">10</span> <span class="n">randos</span></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea ">
+<pre>[279768,3864,196758,671882,495589,457372,652070,194519,28935,96049]</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt"></div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+Next, I introduce the class <code>Sortable</code>. Notice that most 'special' methods are supplied by <code>Listable</code>. The <code>Sortable</code> methods are gotten 'for free'. Lastly, instances of <code>Sortable</code> <code>[a]</code> and <code>Integers</code> are given. The one caveat being that <code>Ord a => [a]</code>.
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt"></div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-haskell">
+<pre><span class="kr">class</span> <span class="p">(</span><span class="kt">Ord</span> <span class="n">s</span><span class="p">,</span> <span class="kt">Listable</span> <span class="n">s</span><span class="p">)</span> <span class="ow">=></span> <span class="kt">Sortable</span> <span class="n">s</span> <span class="kr">where</span>
+  <span class="n">sort</span><span class="p">,</span> <span class="n">shuffle</span> <span class="ow">::</span> <span class="n">s</span> <span class="ow">-></span> <span class="n">s</span>
+
+  <span class="n">sort</span> <span class="n">ns</span> <span class="o">|</span> <span class="n">ns</span> <span class="o">==</span> <span class="n">unit</span> <span class="ow">=</span> <span class="n">unit</span>
+          <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="n">branch</span> <span class="n">smaller</span> <span class="n">ns</span> <span class="o">+++</span> <span class="n">headL</span> <span class="n">ns</span> <span class="o">+++</span> <span class="n">branch</span> <span class="n">larger</span> <span class="n">ns</span>
+    <span class="kr">where</span>
+      <span class="n">branch</span> <span class="n">f</span> <span class="n">xs</span> <span class="ow">=</span> <span class="n">sort</span><span class="o">.</span><span class="n">f</span> <span class="p">(</span><span class="n">headL</span> <span class="n">xs</span><span class="p">)</span> <span class="o">$</span> <span class="n">tailL</span> <span class="n">xs</span>
+      <span class="n">smaller</span> <span class="n">n</span> <span class="ow">=</span> <span class="n">filterL</span> <span class="p">(</span><span class="o"><=</span> <span class="n">n</span><span class="p">)</span>
+      <span class="n">larger</span>  <span class="n">n</span> <span class="ow">=</span> <span class="n">filterL</span> <span class="p">(</span><span class="o">></span>  <span class="n">n</span><span class="p">)</span>
+
+  <span class="n">shuffle</span> <span class="ow">=</span> <span class="n">eval</span> <span class="o">.</span> <span class="n">map</span> <span class="n">snd</span> <span class="o">.</span> <span class="n">sort</span> <span class="o">.</span> <span class="n">zipS</span> <span class="n">randos</span>
+    <span class="kr">where</span>
+      <span class="n">eval</span> <span class="ow">=</span> <span class="n">foldr</span> <span class="n">cons</span> <span class="n">unit</span>
+      <span class="n">zipS</span> <span class="kt">[]</span> <span class="n">s</span> <span class="ow">=</span> <span class="kt">[]</span>
+      <span class="n">zipS</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="n">s</span> <span class="o">|</span> <span class="n">s</span> <span class="o">==</span> <span class="n">unit</span> <span class="ow">=</span> <span class="kt">[]</span>
+                    <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">headL</span> <span class="n">s</span><span class="p">)</span> <span class="kt">:</span> <span class="n">zipS</span> <span class="n">xs</span> <span class="p">(</span><span class="n">tailL</span> <span class="n">s</span><span class="p">)</span>
+                    
+<span class="kr">instance</span> <span class="kt">Sortable</span> <span class="kt">Integer</span> <span class="kr">where</span>
+<span class="kr">instance</span> <span class="kt">Ord</span> <span class="n">a</span> <span class="ow">=></span> <span class="kt">Sortable</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="kr">where</span></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-haskell">
+<pre><span class="nf">sort</span> <span class="mi">23478662345</span>
+<span class="nf">shuffle</span> <span class="mi">23423423</span>
+<span class="nf">shuffle</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span>
+<span class="nf">sort</span><span class="o">.</span><span class="n">shuffle</span> <span class="o">$</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>22334456678</pre>
+<pre>33243422</pre>
+<pre>[2,9,8,3,1,6,5,7,4,10]</pre>
+<pre>[1,2,3,4,5,6,7,8,9,10]</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+ 

@@ -1,0 +1,61 @@
+@font-face {
+  font-family: "Moon Light";
+  src: url(./../fonts/moon/MoonLight.otf) format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Oranienbaum";
+  src: url(./../fonts/oranienbaum/Oranienbaum.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin-top: 5%;
+  margin-bottom: 7%;
+  margin-left: 10%;
+  width:70%;
+  align-items:center;
+  font-size: 1.2em;
+  font-family: helvetica;
+}
+
+h1 {
+  font-family: 'Oranienbaum';
+  font-size: 3em;
+  color: #445555;
+}
+
+h2 {
+  font-family: 'Moon Light';
+  font-size: 1.8em;
+  margin-bottom: 0.5em;
+}
+
+h3 {
+  font-family: 'Oranienbaum';
+  font-size: 1.8em;
+  margin-bottom: 0.5em;
+}
+
+a {
+  text-decoration: none;
+  color: #a0522d;
+}
+
+code {
+  color: #525252;
+}
+
+.header-img {
+  width: 100%;
+  height: 80%;
+  display: block;
+  margin-bottom: 7%;
+}
+
+.card {
+  padding-top: 1em;
+}

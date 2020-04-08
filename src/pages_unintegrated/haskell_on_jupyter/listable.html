@@ -1,0 +1,224 @@
+ 
+<div id="notebook" class="border-box-sizing">
+<div id="notebook-container" class="container">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Listables">Listable</h1>
+<strong>Listable</strong> is a module which contains the <strong>Listable</strong> class. The <strong>Listable</strong> class allows a user to create instances of types which can be treated as lists. Given a minimal description:
+<ul>
+  <li>takeL :: Integer -> m -> m</li>
+  <li>dropL :: Integer -> m -> m</li>
+  <li>cons :: m -> m -> m</li>
+  <li>(+++) :: m -> m -> m</li>
+  <li>unit :: m</li>
+</ul>
+one gets the following functions for free:
+<ul>
+  <li>filterL :: (m -> Bool) -> m -> m</li>
+  <li>(!!!) :: m -> Integer -> m</li>
+  <li>lengthL :: m -> Integer</li>
+  <li>reverseL :: m -> m</li>
+  <li>headL :: m -> m</li>
+  <li>tailL :: m -> m</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt"></div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+Notice below that each of the <em>Free</em> functions are defined in terms of the required ones.
+By indenting these definitions, placing them under the class banner, the haskell compiler expects the function definitions to be self-contained and defined purely in terms of the <strong>Listable</strong> class and standard functions given by <strong>Prelude</strong>. Additionally, Listable demands that its instances be comparable via the Equality class, <strong>Eq</strong>. Without being able to compare two values, there is no way to identify when a base case, <em>unit</em>, is reached. <em>lengthL</em> and <em>reverseL</em> rely upon this in their recursion.
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [1]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-haskell">
+<pre><span class="kr">class</span> <span class="kt">Eq</span> <span class="n">m</span> <span class="ow">=></span> <span class="kt">Listable</span> <span class="n">m</span> <span class="kr">where</span>
+  <span class="n">takeL</span> <span class="ow">::</span> <span class="kt">Integer</span> <span class="ow">-></span> <span class="n">m</span> <span class="ow">-></span> <span class="n">m</span>
+  <span class="n">dropL</span> <span class="ow">::</span> <span class="kt">Integer</span> <span class="ow">-></span> <span class="n">m</span> <span class="ow">-></span> <span class="n">m</span>
+  <span class="n">cons</span> <span class="ow">::</span> <span class="n">m</span> <span class="ow">-></span> <span class="n">m</span> <span class="ow">-></span> <span class="n">m</span>
+  <span class="p">(</span><span class="o">+++</span><span class="p">)</span> <span class="ow">::</span> <span class="n">m</span> <span class="ow">-></span> <span class="n">m</span> <span class="ow">-></span> <span class="n">m</span>
+  <span class="n">unit</span> <span class="ow">::</span> <span class="n">m</span>
+
+  <span class="p">(</span><span class="o">!!!</span><span class="p">)</span> <span class="ow">::</span> <span class="n">m</span> <span class="ow">-></span> <span class="kt">Integer</span> <span class="ow">-></span> <span class="n">m</span>
+  <span class="n">lengthL</span> <span class="ow">::</span> <span class="n">m</span> <span class="ow">-></span> <span class="kt">Integer</span>
+  <span class="n">reverseL</span> <span class="ow">::</span> <span class="n">m</span> <span class="ow">-></span> <span class="n">m</span>
+  <span class="n">headL</span> <span class="ow">::</span> <span class="n">m</span> <span class="ow">-></span> <span class="n">m</span>
+  <span class="n">tailL</span> <span class="ow">::</span> <span class="n">m</span> <span class="ow">-></span> <span class="n">m</span>
+
+  <span class="n">headL</span> <span class="ow">=</span> <span class="n">takeL</span> <span class="mi">1</span>
+  <span class="n">tailL</span> <span class="ow">=</span> <span class="n">dropL</span> <span class="mi">1</span>
+  <span class="p">(</span><span class="o">!!!</span><span class="p">)</span> <span class="n">ls</span> <span class="n">n</span> <span class="ow">=</span> <span class="n">headL</span><span class="o">.</span><span class="n">dropL</span> <span class="n">n</span> <span class="o">$</span> <span class="n">ls</span>
+
+  <span class="n">lengthL</span> <span class="n">ls</span> <span class="o">|</span> <span class="n">unit</span> <span class="o">==</span> <span class="n">ls</span> <span class="ow">=</span> <span class="mi">0</span>
+             <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="n">lengthL</span><span class="o">.</span><span class="n">dropL</span> <span class="mi">1</span><span class="p">)</span> <span class="n">ls</span>
+
+  <span class="n">reverseL</span> <span class="n">ns</span> <span class="ow">=</span> <span class="n">ff</span> <span class="n">ns</span> <span class="n">unit</span>
+    <span class="kr">where</span>
+      <span class="n">ff</span> <span class="n">ns</span> <span class="n">accum</span> <span class="o">|</span> <span class="n">ns</span> <span class="o">==</span> <span class="n">unit</span> <span class="ow">=</span> <span class="n">accum</span>
+                  <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="n">ff</span> <span class="p">(</span><span class="n">tailL</span> <span class="n">ns</span><span class="p">)</span> <span class="o">$</span> <span class="n">headL</span> <span class="n">ns</span> <span class="p">`</span><span class="n">cons</span><span class="p">`</span> <span class="n">accum
+ 
+  filterL b ns = f b ns unit
+    where
+      f b js accum | js == unit = accum
+                 | (b.headL) js = f b (tailL js) $ headL js +++ accum
+                 | otherwise = f b (tailL js) accum</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt"></div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+Now for some instances. Since <strong><code>[a]</code></strong> is essentially the defacto model of our class, it seems most obvious to begin with this instance. Above, the <strong>Listable</strong> type of <em>cons</em> is slightly different than one usually expects for <code>(:)</code>.
+
+Here, <em>cons</em> is constrained as: <strong><code>cons :: m -> m -> m</code></strong>
+
+where <code>(:)</code> is usually constrained as: <strong><code>(:) :: a -> [a] -> [a]</code></strong>.
+
+This difference will ultimately have an impact on how a <strong>Listable</strong> <em>cons</em> behaves.
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [2]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-haskell">
+<pre><span class="kr">instance</span> <span class="kt">Eq</span> <span class="n">a</span> <span class="ow">=></span> <span class="kt">Listable</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="kr">where</span>
+  <span class="n">dropL</span> <span class="ow">=</span> <span class="n">drop</span><span class="o">.</span><span class="n">fromIntegral</span>
+  <span class="n">takeL</span> <span class="ow">=</span> <span class="n">take</span><span class="o">.</span><span class="n">fromIntegral</span>
+  <span class="n">cons</span> <span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="n">ns</span> <span class="ow">=</span> <span class="n">n</span> <span class="kt">:</span> <span class="n">ns</span> <span class="c1">-- wrap the left argument with [].</span>
+  <span class="p">(</span><span class="o">+++</span><span class="p">)</span> <span class="ow">=</span> <span class="p">(</span><span class="o">++</span><span class="p">)</span>
+  <span class="n">unit</span> <span class="ow">=</span> <span class="kt">[]</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [3]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-haskell">
+<pre><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">`</span><span class="n">cons</span><span class="p">`</span> <span class="n">dropL</span> <span class="mi">3</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">9</span><span class="p">]</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>[2,4,5,6,7,8,9]</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt"></div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+Next, something less trivial. We can in fact treat numbers of type <strong>Integer</strong> as <strong>Listable</strong> as well. Best of all, all one needs to do is write instances for the necessary functions: takeL, dropL, cons, (+++) and unit.
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [19]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-haskell">
+<pre><span class="kr">instance</span> <span class="kt">Listable</span> <span class="kt">Integer</span> <span class="kr">where</span>
+  <span class="p">(</span><span class="o">+++</span><span class="p">)</span> <span class="n">ns</span> <span class="n">ms</span> <span class="ow">=</span> <span class="n">ns</span> <span class="o">*</span> <span class="mi">10</span><span class="o">^</span><span class="n">lengthL</span> <span class="n">ms</span> <span class="o">+</span> <span class="n">ms</span>
+  <span class="n">dropL</span> <span class="n">n</span> <span class="n">zs</span> <span class="ow">=</span> <span class="n">div</span> <span class="n">zs</span> <span class="p">(</span><span class="mi">10</span><span class="o">^</span><span class="n">n</span><span class="p">)</span>
+  <span class="n">takeL</span> <span class="n">n</span> <span class="n">zs</span> <span class="ow">=</span> <span class="n">mod</span> <span class="n">zs</span> <span class="p">(</span><span class="mi">10</span><span class="o">^</span><span class="n">n</span><span class="p">)</span>
+  <span class="n">cons</span> <span class="n">n</span> <span class="n">ns</span> <span class="ow">=</span> <span class="n">ns</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="n">n</span>
+  <span class="n">unit</span> <span class="ow">=</span> <span class="mi">0</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [20]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-haskell">
+<pre><span class="mi">2</span> <span class="p">`</span><span class="n">cons</span><span class="p">`</span> <span class="n">dropL</span> <span class="mi">3</span> <span class="mi">987654321</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>9876542</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt"></div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+It is probably worth mentioning that the <strong>Listable</strong> behavior of <strong><code>[a]</code></strong> and of <strong>Integer</strong> are noticeably different. <strong>Listable</strong> treats an <strong>Integer</strong> type as a list whose order is <em>opposite</em> to the order of a <strong>Listable [a]</strong>. This choice is arbitrary in that the <strong>Integer</strong> instance could likely have been written so that the two types have the same direction, though I am not entirely sure how to do it purely arithmetically. Additionally note, that since <em>zero</em> is defined as the monoidal unit, it behaves more similarly to <em><code>[]</code></em> than it does to the actual number 0.
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [37]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-haskell">
+<pre><span class="p">[</span><span class="n">takeL</span> <span class="mi">1</span> <span class="mi">1000002</span> <span class="o">==</span> <span class="n">reverseL</span> <span class="mi">20</span><span class="p">,</span> <span class="n">lengthL</span> <span class="mi">0</span> <span class="o">==</span> <span class="n">lengthL</span> <span class="mi">1</span><span class="p">]</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>[True,False]</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+ 

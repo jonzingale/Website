@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<meta charset="utf-8"></meta>
+<html lang="en-us">
+  <head>
+    <link href="/css/lights-game.css" rel="stylesheet"></link>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+    <script src="js/d3.v5.min.js"></script>
+  </head>
+  <body>
+    <h1>Two WoW puzzles, one solution.</h1>
+    <img src='./assets/lights-game-header-img.png' class='header-img'></img>
+    <div class='content'>
+      Outside of occasionally playing online go, I am almost completely ignorant
+      of online gaming. By contrast, my friend Alec has been a World of Warcraft
+      nerd for many years, participating in hundreds of raids and thinking deeply
+      about group strategy. One day, after spending the night chatting with a
+      fellow guildy, Alec presented me with a lights game puzzle. He writes:
+    </div>
+    <div class='sub-story'>
+      I was hanging out in World of Warcraft one day, and a guildy was looking
+      for the blue mechanowolf (Friender) pet for his Hunter. He came across the
+      <a href="https://www.youtube.com/watch?v=QQUVsLK5kZY&t=115">lights puzzle</a>
+      in Gnomeregan which summons Friender for you to tame, and was having
+      trouble solving it. He asked for help in guild chat, and being a lover of
+      puzzles, I decided I wanted to take a look. The puzzle is pretty simple.
+      You have a set of 8 lights, some of which are on, and some of which are
+      off. If you click on a light, it toggles that light and the ones next to
+      it. The object is to get all of the lights to be turned on.
+      
+      <svg id='game'></svg>
+      
+      Unfortunately, we were struggling to solve it. In fact, if you attempt to
+      solve the example I’ve given you, you’ll find it’s impossible. Surprised
+      that I couldn’t solve this when it seemed so simple, I took the puzzle to
+      bed with me on a notebook, using binary representation to write out steps.
+      Using the above example, I would have written <code>10110000</code> on my
+      notebook with <code>01010000</code> underneath it to indicate the new
+      sequence after clicking the second light. I finally gave up around
+      3:00 AM, extremely frustrated. The next morning, I went into work and
+      decided I was going to ask my co-worker Jon about this. I was fairly
+      certain that there was no solution to the puzzle, but I wanted to ask Jon
+      if there was a way to prove mathematically that the sequence
+      <code>11111111</code> is impossible to reach from the sequence
+      <code>10110000</code>, given the rules of the puzzle.
+    </div>
+    <div class='content'>
+      <div class='pp'>
+        After thinking about the problem for a while, I found that Alec was
+        correct. Given a particular starting state only half of the possible
+        configurations are reachable. This means that half of the possible
+        starting states can reach <code>11111111</code>, but for the other
+        half the game has no solution! I reasoned as follows:
+      </div>
+      <div class='pp'>
+        Imagining each light to be independent of any other,
+        the 8 lights can be in any of \(2^8\) starting configurations.
+        I aim to show that the 8 operations on the lights are actually
+        <i>dependent</i> on one another and therefore not all 256 configurations
+        can be reached from any other. Further, from any starting configuration
+        only half of the configurations can be reached.
+      </div>
+      <div class='pp'>
+        Let us begin by considering the independent case.
+        Each light can be in any of two states, either on
+        or off. For modeling purposes let us assign the
+        number 1 to an on state and 0 to an off state.
+        Also, let us assign the function <code>add 1 modulo 2</code>,
+        which we will denote \(+ 1\), to the act of changing a single
+        light from its current state to its other state. In other
+        words we are mathematically representing the actions on a
+        single light as the cyclic group \(\mathbb{Z}/2\mathbb{Z}\) generated
+        by \(+ 1\).
+      </div>
+      <div class='pp'>
+      <div class='pp'>Effectively this means:
+      <ul>
+      <li> performing \(+ 1\) an odd number of times affects the same
+      change on a light as just performing \(+ 1\) once. Let us denote
+      any performance like this with an <b>a</b> for action. By parallel,
+      we notice that performing \(+ 1\) an even number of times effects
+      no change at all. Let us denote this trivial change by <b>e</b>.
+      Performing either <b>a</b> or <b>e</b> are the only two actions we can
+      perform on a given light, a(1) = 0 for instance.
+      </li>
+      <li>
+      Actions themselves can be composed. We can <i>perform</i> <b>a</b>
+      twice and then <i>perform</i> <b>e</b>. For simplicity, I will show
+      this composition by juxtaposition, ie. \(eaa\). Note that my
+      composition <i>reads</i> from left to right.
+      Both actions are self inverse and thus performing either
+      of them an even number of times is the same as doing nothing,
+      aa = e or ee = e. This means that pairs of the same action
+      can be <i>cancelled</i> from a performance, ie.
+      $$
+      aeaaeeea\\
+      aeeeea\\
+      aeea\\
+      aa\\
+      e
+      $$
+      </li>
+      <li>
+      Possibly most crucially, performing the same actions in one
+      order versus another makes no difference to the outcome, ie.
+      \(aeaaeeea = aaaaeeee\).
+      This last property of the group is called the Abelian property.
+      </li>
+      </ul>
+      </div>
+      <div class='pp'>
+      Allow now for a leap of abstraction. While any one light can be
+      represented by one of our cyclic groups \(\mathbb{Z}/2\mathbb{Z}\), we
+      can also consider pairs of \(\mathbb{Z}/2\mathbb{Z}\)s to represent pairs
+      of lights (or more generally n copies of \(\mathbb{Z}/2\mathbb{Z}\) can
+      represent n many lights).
+      Now where elements of \(\mathbb{Z}/2\mathbb{Z}\) are either 1 or 0,
+      elements of pairs of \(\mathbb{Z}/2\mathbb{Z}\) can be written
+      \((0, 0), (0, 1), (1, 0), (1, 1)\), corresponding to the 4 configurations
+      the pair of lights can be found. Similarly, actions on these states can be
+      written \((e, e), (e, a), (a, e), (a, a)\). The act of performing paired
+      operations like \((e, a)\) on paired states like \((1, 1)\) can be
+      defined pairwise giving: \((e, a) (1, 1) = (e(1), a(1)) = (1, 0)\).
+      Notice how the bulleted properties above extend nicely.
+      <ul>
+      <li>Performing either (e, e), (e, a), (a, e), or (a, a) are the
+      only actions we can perform on a given pair of lights. Further,
+      (e, a) and (a, e) are generators in that combinations of these two
+      can be used to get to any other possible state.</li>
+
+      <li>Each action is self inverse.</li>
+
+      <li>This newly formed group of pairs has the Abelian property.</li>
+      </ul>
+      </div>
+      <div class='pp'>
+      This suggests more generally that for n lights we can construct
+      an n-fold Abelian group whose elements \(a1 ... an\) designate
+      any of \(2^n\) possible light configurations and whose actions
+      \(f_1 ... f_n\) designate any of \(2^n\) possible ways to effect n lights.
+      Notice, that this model preserves the independence of any given
+      light. In other words, the only way to change the light in the jth
+      place in the a list, \(a_1...a_j...a_n\) is by having \(f_j\) be an <b>a</b>,
+      ie. \(00010000+ eeeaeeae = 00000010\).
+      </div>
+
+      This fact has far-reaching consequences for us. If we are to write
+      out each of the n generators for the n-fold Abelian group,
+      $$
+      f_1 = a e e ... e\\
+      f_2 = e a e ... e\\
+      f_3 = e e a ... e\\
+      ...\\
+      f_n = e e e ... a\\
+      $$
+      <div class='pp'>
+      Not one of them can be expressed as the combination of any of
+      the others. Changing the jth and kth light has no effect on the mth.
+      These n independent actions form what is called a basis for our group.
+      That no action can be written as the sum of any others also means
+      that from any configuration on n lights we can get to any of \(2^n\)
+      light configurations by applying combinations of the n actions.
+      With 8 lights, for instance, we can get to any of \(2^8 = 256\)
+      configurations via combinations of the 8 basis actions.
+      </div>
+      <div class='pp'>
+      If, on the other hand, the actions were dependent so that some
+      action, \(f_j\), could be performed as the combination of any of the
+      others, \(f_j = f_1f_3f_2\) say, so would any performance involving \(f_j\)
+      be dependent on a combination of \(f_1f_3f_2\). This means that we
+      could only reach \(2^{n-1}\) possible configurations, \(2^7 = 128\) in
+      our example.
+      </div>
+      <div class='pp'>
+      Now for the punchline (no longer the independent case but rather
+      the actual case). The light game has 8 possible actions. Each action
+      effects a small handful of lights. Changing the leftmost light, for
+      example, also effects its next closest neighbor to the right.
+      Generally, changing any light also effects that lights nearest adjacent
+      lights. If these actions were independent, they could be used to
+      reach any of 256 configurations for any starting configuration.
+      If instead we can perform any action as the combination of any others,
+      we can then only reach 128 configurations, ie half of the possible
+      configurations.
+      </div>
+      <div class='pp'>
+      Notice, that performing \(f_1f_5f_4f_2f_7\) as above, is the same as
+      performing \(f_8\). This means that \(f_8\) is dependent on
+      \(f_1\),\(f_5\),\(f_4\),\(f_2\) and \(f_7\). From the reasoning above, this
+      means that \(f_8\) does not contribute uniquely to arriving at any
+      configurations we otherwise could get to using the other actions and
+      therefore the total number of configurations we can arrive at with \(f_1\)
+      through \(f_7\) is 128, ie. less than 256.
+      </div>
+      <div class='pp'>
+      Of course, we could have instead thought of the 8 operations as being a
+      basis for a vector space and considered them as the rows of a matrix.
+      Then by computing <a href="https://en.wikipedia.org/wiki/Gaussian_elimination">
+      Gaussian elimination</a> we would see that only 7 of these vectors form a
+      basis, ie. one of the rows would be zero. Further, the 7 vectors form a
+      basis for a space with 128 elements. This means that for any given initial
+      configuration, only 1/2 of the total configurations can be reached, as is
+      intended to be shown.
+      </div>
+      <div class='pp'>
+      Lastly, this particular puzzle reappears in a different form later on in
+      the game. There it appears as the
+      <a href="https://www.youtube.com/watch?v=cPjYDD5hra0&t=10">Shaman's Totem
+      puzzle</a>. Though the game pictorially has been extended to a
+      2-dimensional playing field, the mathematics works out the same. Here
+      instead of 8 lights there are 25 lights. Encoding these as binary vectors
+      and computing Gaussian elimination gives the basis for the space of
+      accessible light configurations, which btw IS fully accessible for any
+      starting configuration ;)
+      </div>
+    </div>
+  </body>
+  <script src='/js/lights-game.js' type='module'></script>
+</html>
