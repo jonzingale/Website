@@ -1,0 +1,11 @@
+:root {
+  --global-color-d4: #74737a; /*Neutral Grey 60%*/
+  --global-color-d3: #e6a642; /*Goldenrod*/
+  --global-color-d2: #674b1c; /*Sandbar Brown*/
+  --global-color-d1: #dcc8ad; /*Putty Beige*/
+
+  --global-color-l1: #86848b; /*Neutral Grey 50%*/
+  --global-color-l2: #a6adb5; /*Warm Grey 60%*/
+  --global-color-l3: #86b3b9; /*Muted Turquoise*/
+  --global-color-l4: #f5f2e3; /*Brick White*/
+}

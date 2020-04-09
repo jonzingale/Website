@@ -1,0 +1,11 @@
+:root {
+  --global-color-v0 : #b8c7de; /*Blue Slate*/
+  --global-color-v1 : #cbb6a1; /*Light Umber 50%*/
+  --global-color-v2 : #4170b4; /*Mediterranean Blue*/
+  --global-color-v3 : #23242b; /*Warm Grey 90%*/
+  --global-color-v4 : #e19d94; /*Carmine Red Light*/
+  --global-color-v5 : #f47145; /*Pale Vermillion*/
+  --global-color-v6 : #55565d; /*Neutral Grey 80%*/
+  --global-color-v7 : #939898; /*French Grey 60%*/
+  --global-color-v8 : #e4d5c0; /*Light Umber 20%*/
+}
