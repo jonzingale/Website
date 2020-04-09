@@ -4,13 +4,8 @@ import { Navbar, Nav } from 'react-bootstrap';
 
 import HaskellOnJupyter from './pages/HaskellOnJupyter';
 import TestTemplate from './pages/TestTemplate';
-import TestTemplate2 from './pages/TestTemplate2';
 
 import './css/main.css'
-
-// TODO:
-// - Routing
-      // <HaskellOnJupyter />
 
 class App extends Component {
 
@@ -21,18 +16,14 @@ class App extends Component {
           <Navbar bg='dark' variant='dark' expand='lg'>
             <Nav>
               <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/column-template">Template1</Nav.Link>
-              <Nav.Link href="/grid-template">Template2</Nav.Link>
+              <Nav.Link href="/template">Template</Nav.Link>
             </Nav>
           </Navbar>
 
           {/* A <Switch> looks through its children <Route>s and
               renders the first one that matches the current URL. */}
           <Switch>
-            <Route path="/grid-template">
-              <TestTemplate2 />
-            </Route>
-            <Route path="/column-template">
+            <Route path="/template">
               <TestTemplate />
             </Route>
             <Route path="/">

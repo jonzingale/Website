@@ -1,11 +1,10 @@
 :root {
-  --global-color-l4: #ffffff; /*brick white*/
-  --global-color-l3: #bdd3e0; /*cool grey 60%*/
-  --global-color-l2: #b69c87; /*french grey 70%*/
-  --global-color-l1: #fdd391; /*goldenrod*/
-
-  --global-color-d1: #e6a642; /*goldenrod*/
-  --global-color-d2: #706b67; /*french grey 70%*/
-  --global-color-d3: #8ba0ac; /*cool grey 60%*/
-  --global-color-d4: #f5f2e3; /*brick white*/
+  --global-color-v0: #e6a642; /*goldenrod*/
+  --global-color-v1: #fdd391; /*goldenrod*/
+  --global-color-v2: #706b67; /*french grey 70%*/
+  --global-color-v3: #b69c87; /*french grey 70%*/
+  --global-color-v4: #ffffff; /*brick white*/
+  --global-color-v5: #f5f2e3; /*brick white*/
+  --global-color-v6: #bdd3e0; /*cool grey 60%*/
+  --global-color-v7: #8ba0ac; /*cool grey 60%*/
 }

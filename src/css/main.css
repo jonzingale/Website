@@ -26,14 +26,17 @@
 }
 
 nav {
-  /*margin: 1%;*/
-  padding: 1%;
+  width: 50%;
+  position: fixed;
+  padding: 1.2em;
   background-color: var(--global-color-d1);
+  /*background-color: var(--global-color-v7);*/
 }
 
 .nav-link {
+  font-size: 1.5em;
   color: var(--global-color-l3);
-  margin: 1%;
+  margin: 1em;
 }
 
 h1 {
@@ -63,6 +66,10 @@ code {
   color: var(--global-color-code);
 }
 
+/*footer {*/
+  /*color: var(--global-color-rust);*/
+/*}*/
+
 .content {
   margin-top: 5%;
   margin-bottom: 7%;
@@ -71,7 +78,7 @@ code {
   align-items:center;
   font-size: 1.2em;
   font-family: helvetica;
-  /*color: var(--global-color-d4);*/
+  color: var(--global-color-d4);
 }
 
 .header-img {
@@ -83,4 +90,5 @@ code {
 
 .card {
   padding-top: 1em;
+  padding-bottom: 2em; 
 }
