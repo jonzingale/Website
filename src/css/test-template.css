@@ -1,4 +1,4 @@
-@import 'main-theme.css';
+/*@import 'main-theme.css';*/
 /*@import 'goldenrod-theme.css';*/
 /*@import 'rounder-theme.css';*/
 /*@import 'light-green-theme.css';*/
@@ -8,17 +8,57 @@
 /*@import 'desert-sarah-theme.css';*/
 /*@import 'woman-in-rain-theme.css';*/
 /*@import 'cycles-perfecta-theme.css';*/
-/*@import 'mucha1-theme.css';*/
+@import 'mucha1-theme.css';
 /*@import 'mucha2-theme.css';*/
 /*@import 'cigarrillos-theme.css';*/
 /*@import 'job-theme.css';*/
+
+.column {
+  float: left;
+}
+
+.column.side {
+  background-color: var(--global-color-v3);
+  color: var(--global-color-v1);
+  width: 30%;
+}
+
+.column.middle {
+  background-color: var(--global-color-v2);
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media screen and (max-width: 600px) {
+  .column.side, .column.middle {
+    width: 100%;
+  }
+}
+
+.header {
+  background-color: var(--global-color-v8);
+  text-align: center;
+  padding: 10px;
+}
+
+.footer {
+  background-color: var(--global-color-v9);
+  text-align: center;
+  padding: 30px;
+}
 
 h1 {
   color: var(--global-color-v9);
 }
 
 h2 {
-  /*color: var(--global-color-v7);*/
+  color: var(--global-color-v7);
 }
 
 a {
@@ -30,7 +70,7 @@ code {
 }
 
 .title {
-  /*color: var(--global-color-v7);*/
+  color: var(--global-color-v0);
 }
 
 .card {
@@ -40,19 +80,7 @@ code {
   color: var(--global-color-v1);
 }
 
-.border {
-
-}
-
 .content {
   color: var(--global-color-v7);
 }
 
-.header {
-
-}
-
-
-.footer {
-
-}
