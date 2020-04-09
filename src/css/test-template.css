@@ -1,0 +1,57 @@
+@import 'main-theme.css';
+/*@import 'goldenrod-theme.css';*/
+/*@import 'rounder-theme.css';*/
+/*@import 'light-green-theme.css';*/
+
+/*These are really good*/
+/*@import 'coast-theme.css';*/
+/*@import 'desert-sarah-theme.css';*/
+/*@import 'woman-in-rain-theme.css';*/
+/*@import 'cycles-perfecta-theme.css';*/
+@import 'mucha1-theme.css';
+/*@import 'mucha2-theme.css';*/
+
+
+h1 {
+  color: var(--global-color-v9);
+}
+
+h2 {
+  /*color: var(--global-color-v7);*/
+}
+
+a {
+  color: var(--global-color-v7);
+}
+
+code {
+  color: var(--global-color-v0);
+}
+
+.title {
+  /*color: var(--global-color-v7);*/
+}
+
+.card {
+  margin-top: 5%;
+  padding: 3%;
+  background-color: var(--global-color-v4);
+  color: var(--global-color-v1);
+}
+
+.border {
+
+}
+
+.content {
+  color: var(--global-color-v7);
+}
+
+.header {
+
+}
+
+
+.footer {
+
+}

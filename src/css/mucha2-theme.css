@@ -1,0 +1,16 @@
+:root {
+  --global-color-v0 : #b69b80; /*Light Umber 80%*/
+  --global-color-v1 : #c4c3c6; /*Neutral Grey 20%*/
+  --global-color-v2 : #74737a; /*Neutral Grey 60%*/
+  --global-color-v3 : #86848b; /*Neutral Grey 50%*/
+  --global-color-v4 : #55565d; /*Neutral Grey 80%*/
+  --global-color-v5 : #8a7455; /*Light Umber 90%*/
+  --global-color-v6 : #f0b58b; /*Peach*/
+  --global-color-v7 : #b0a79e; /*French Grey 30%*/
+  --global-color-v8 : #f5d1af; /*Light Peach*/
+  --global-color-v9 : #db9485; /*Walnut*/
+  --global-color-v10 : #c57b62; /*Nectar*/
+  --global-color-v11 : #99979d; /*Neutral Grey 40%*/
+  --global-color-v12 : #b2babf; /*Warm Grey 50%*/
+  --global-color-v13 : #748e9d; /*Slate Grey*/
+}
