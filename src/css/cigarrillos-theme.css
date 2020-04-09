@@ -1,0 +1,13 @@
+/*./summarize.sh 10 cigarrillos.jpg*/
+:root {
+  --global-color-v0 : #c4e0dc; /*Parrot Green Light*/
+  --global-color-v1 : #5fcba5; /*Spruce Green*/
+  --global-color-v2 : #40514e; /*Jet Black*/
+  --global-color-v3 : #6f4891; /*Black Grape*/
+  --global-color-v4 : #ffffff; /*Brick White*/
+  --global-color-v5 : #e1baac; /*Nectar*/
+  --global-color-v6 : #faf3e9; /*Peach Beige*/
+  --global-color-v7 : #d97b5c; /*Burnt Ochre*/
+  --global-color-v8 : #aeaba7; /*French Grey 50%*/
+  --global-color-v9 : #aa6839; /*Chocolate*/
+}

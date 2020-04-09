@@ -1,0 +1,12 @@
+/*./summarize.sh 10 job.jpg*/
+:root {
+  --global-color-v0 : #fffefe; /*Deco Orange Light*/
+  --global-color-v1 : #fcefe5; /*Peach*/
+  --global-color-v2 : #424242; /*Black*/
+  --global-color-v3 : #d97b5c; /*Burnt Ochre*/
+  --global-color-v4 : #858962; /*Marine Green*/
+  --global-color-v5 : #f89d92; /*Poppy Red*/
+  --global-color-v6 : #ded7c1; /*Light Tan*/
+  --global-color-v7 : #b8a68d; /*Light Umber 90%*/
+  --global-color-v8 : #0068e2; /*Copenhagen Blue*/
+}
