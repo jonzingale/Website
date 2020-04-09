@@ -17,6 +17,9 @@
   background-color: var(--global-color-v0);
 }
 
+/* NOTE: TO USE COLUMNS SEE BELOW.*/
+/* https://www.w3schools.com/css/css_website_layout.asp */
+
 .column {
   float: left;
 }
