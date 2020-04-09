@@ -1,0 +1,12 @@
+:root {
+  --global-color-v0 : #faf5d6; /*Eggshell*/
+  --global-color-v1 : #a69257; /*Bronze*/
+  --global-color-v2 : #eeb862; /*Yellow Ochre*/
+  --global-color-v3 : #f9e5a6; /*Beige*/
+  --global-color-v4 : #ccb164; /*Metallic Gold*/
+  --global-color-v5 : #bfc287; /*Khaki*/
+  --global-color-v6 : #866343; /*Light Umber*/
+  --global-color-v7 : #5e5f3d; /*Moss Green*/
+  --global-color-v8 : #f98240; /*Orange*/
+  --global-color-v9 : #cbb6a1; /*Light Umber 50%*/
+}
