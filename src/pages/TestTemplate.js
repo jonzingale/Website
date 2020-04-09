@@ -8,7 +8,15 @@ class TestTemplate extends Component {
         <div className='header'>This is the Header</div>
         <div className='row'>
           <div className='column side'>
-            <h1>This is the Margin.</h1>
+
+            <h1>This is the Margin Header!!!!.</h1>
+
+            <div className='card'>
+              Recently, I have found myself leading a Haskell programming group in Santa
+              Fe, New Mexico. These meetings have been a great opportunity to actually
+              learn to apply Haskell. Included here are some of my notes.
+            </div>
+
             <div className='card'>
               <h2><a href="./haskell_on_jupyter/HTF.html">Haskell Test Framework</a></h2>
               Having a reliable test framework is an amazing thing. Here is a small

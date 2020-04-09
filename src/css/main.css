@@ -1,6 +1,6 @@
 @import 'main-theme.css';
-@import 'goldenrod-theme.css';
-/*@import 'rounder-theme.css';*/
+/*@import 'goldenrod-theme.css';*/
+@import 'rounder-theme.css';
 /*@import 'light-green-theme.css';*/
 
  /*These are really good*/
@@ -9,7 +9,7 @@
 /*@import 'cycles-perfecta-theme.css';*/
 /*@import 'mucha1-theme.css';*/
 /*@import 'mucha2-theme.css';*/
-@import 'coast-theme.css';
+/*@import 'coast-theme.css';*/
 
 @font-face {
   font-family: "Moon Light";
@@ -23,6 +23,17 @@
   src: url(./../fonts/oranienbaum/Oranienbaum.ttf) format("truetype");
   font-weight: normal;
   font-style: normal;
+}
+
+nav {
+  /*margin: 1%;*/
+  padding: 1%;
+  background-color: var(--global-color-d1);
+}
+
+.nav-link {
+  color: var(--global-color-l3);
+  margin: 1%;
 }
 
 h1 {
