@@ -1,0 +1,11 @@
+:root {
+  --global-color-l4: #bab8bd; /*Neutral Grey 30%*/
+  --global-color-l3: #fde297; /*Sunburst Yellow*/
+  --global-color-l2: #a8a7ac; /*Neutral Grey 60%*/
+  --global-color-l1: #bae2a5; /*Apple Green*/
+
+  --global-color-d1: #a7bb8b; /*Kelly Green*/
+  --global-color-d2: #c6d1d7; /*Cool Grey 60%*/
+  --global-color-d3: #d5cb91; /*Artichoke*/
+  --global-color-d4: #324242; /*Warm Black*/
+}

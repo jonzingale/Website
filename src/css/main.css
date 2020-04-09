@@ -1,3 +1,8 @@
+@import 'main-theme.css';
+@import 'goldenrod-theme.css';
+/*@import 'rounder-theme.css';*/
+/*@import 'light-green-theme.css';*/
+
 @font-face {
   font-family: "Moon Light";
   src: url(./../fonts/moon/MoonLight.otf) format("opentype");
@@ -15,7 +20,7 @@
 h1 {
   font-family: 'Oranienbaum';
   font-size: 3em;
-  color: #445555;
+  color: var(--global-color-d2);
 }
 
 h2 {
@@ -32,11 +37,11 @@ h3 {
 
 a {
   text-decoration: none;
-  color: #a0522d;
+  color: var(--global-color-rust);
 }
 
 code {
-  color: #525252;
+  color: var(--global-color-code);
 }
 
 .content {
@@ -47,6 +52,7 @@ code {
   align-items:center;
   font-size: 1.2em;
   font-family: helvetica;
+  /*color: var(--global-color-d4);*/
 }
 
 .header-img {

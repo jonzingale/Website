@@ -7,13 +7,13 @@ import React, { Component } from 'react'
 
 class HaskellOnJupyter extends Component {
   render() {
-      return(
+    const imgUrl = '/images/haskelltospreadsheet.png'
+
+    return(
       <div className='content'>
         <h1 className='title'>Haskell on Jupyter</h1>
 
-        <img className="header-img" alt='xkcd' 
-          src='/images/haskelltospreadsheet.png'
-        />
+        <img className="header-img" alt='xkcd' src={imgUrl} />
         <div>
           Recently, I have found myself leading a Haskell programming group in Santa
           Fe, New Mexico. These meetings have been a great opportunity to actually
@@ -33,7 +33,7 @@ class HaskellOnJupyter extends Component {
           on Integers. From these we derive further functionality, namely:
           <code>length, reverse, head, tail, and (!!)</code>. Since clearly both
           Integers and Lists are both instances of the same functionality, we define
-          a class <a href="./haskell_on_jupyter/listable.html">Listable</a>
+          a class <a href="./haskell_on_jupyter/listable.html"> Listable </a>
           handling both.
         </div>
         <div className='card'>
