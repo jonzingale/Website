@@ -35,7 +35,7 @@
       "footer footer footer";
 
   grid-template-columns: 0.8fr 2.2fr 0.5fr;
-  grid-gap: 12px;
+  /*grid-gap: 12px;*/
 }
 
 header {
