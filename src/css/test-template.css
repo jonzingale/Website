@@ -53,7 +53,7 @@ header {
 article {
   padding-left: 3em;
   grid-area: content;
-  padding-bottom: 2em;
+  padding-bottom: 5em;
 }
 
 .sidebar-left {

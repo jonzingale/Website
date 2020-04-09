@@ -32,6 +32,13 @@ class TestTemplate extends Component {
             examples are designed for my recent work developing a ray tracing algorithm.
           </div>
 
+          <div className='card'>
+            <h2><a href="./haskell_on_jupyter/HTF.html">Haskell Test Framework</a></h2>
+            Having a reliable test framework is an amazing thing. Here is a small
+            collection of notes describing some of the features and organizational
+            structure of the <code>Haskell Test Framework</code>​ (HTF). Most of the
+            examples are designed for my recent work developing a ray tracing algorithm.
+          </div>
 
           <div className='card'>
             <h2><a href="./haskell_on_jupyter/HTF.html">Haskell Test Framework</a></h2>
