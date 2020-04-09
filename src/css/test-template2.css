@@ -18,6 +18,7 @@
 }
 
 /* NOTE: TO USE GRIDS FOLLOW RULES BELOW.*/
+/* https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids */
 /*- You need to have every cell of the grid filled.*/
 /*- To span across two cells, repeat the name.*/
 /*- To leave a cell empty, use a . (period).*/
