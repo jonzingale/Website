@@ -53,6 +53,7 @@ header {
 article {
   padding-left: 3em;
   grid-area: content;
+  padding-bottom: 2em;
 }
 
 .sidebar-left {
@@ -67,16 +68,23 @@ article {
 }
 
 footer {
+  /*footer follows page*/
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+
   grid-area: footer;
-  color: var(--global-color-v4);
+  /*color: var(--global-color-v4);*/
+  color: #faf5d6; /* eggshell */
   background-color: var(--global-color-rust);
   text-align: center;
-  font-size: 2em;
-  padding: 30px;
+  font-size: 1.5em;
+  padding: 0.7em;
 }
 
 .introduction {
   color: var(--global-color-v4);
+  color: #faf5d6;  /*eggshell */
   background-color: var(--global-color-v2);
 
   padding: 5%;
