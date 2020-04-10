@@ -10,4 +10,21 @@
   --global-color-v7 : #e9e0d7; /*Light Umber 60%*/
   --global-color-v8 : #f9f5eb; /*Cinnamon Toast*/
   --global-color-v9 : #a39e9a; /*French Grey 70%*/
+
+  /* undefined, inherited from main.css */
+  /*--global-color-header-text:*/
+  /*--global-color-h1:*/
+  /*--global-color-code:*/
+  /*--global-color-card-background:*/
+  /*--global-color-intro-text:*/
+
+  --global-color-nav-background : #757a88;
+  --global-color-nav-text: #f9f5eb;
+  --global-color-header-background : #c7caca;
+  --global-color-title: #e48985;
+  --global-color-intro-background: #f9f5eb;
+  --global-color-sidebar-background: #e9e0d7;
+  --global-color-content-link: #e48985;
+  --global-color-footer-background: #e1baac;
+  --global-color-footer-text: #f9f5eb;
 }
