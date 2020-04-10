@@ -19,7 +19,8 @@
 
   /* undefined, inherited from main.css */
   /*--global-color-card-background: #ecc1bc;*/
-  /*--global-color-sidebar-text: #3cbb8e;*/
+  --global-color-sidebar-text: #2a3432;
+  --global-color-sidebar-content-background: #fbebdc;
   --global-color-h1: #55376f;
   --global-color-code: #2a3432;
   --global-color-nav-background : #fbebdc;

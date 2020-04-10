@@ -1,26 +1,24 @@
 :root {
-  /*from goldenrod theme*/
   --global-color-header-background: #bdd3e0; /*cool grey 60%*/
   --global-color-header-text: #333; /*cool grey 60%*/
 
-  --global-color-title: #e6a642; /*goldenrod*/
-
-  --global-color-sidebar-background: #fdd391; /*goldenrod*/
-
-/* from rounder-theme */
   --global-color-nav-background: #ce8b1b; /*strong Sandbar Brown*/
   --global-color-nav-text: #fbf7e9; /*light Cinnamon Toast*/
-  --global-color-h1: #9b96bd; /*strong periwinkle*/
 
-  --global-color-footer-background: #a0522d; /*rust*/
-  --global-color-footer-text: #faf5d6; /*eggshell*/
+  --global-color-title: #e6a642; /*goldenrod*/
+  --global-color-h1: #9b96bd; /*strong periwinkle*/
 
   --global-color-code: #525252; /* middle grey */
   --global-color-content-link: #a0522d; /* Rust */
-
-/* rando */
   --global-color-card-background: #ffffff; /* white */
 
   --global-color-intro-text: #555; /*cool grey 60%*/
   --global-color-intro-background: #f5f2e3; /*brick white*/
+
+  --global-color-sidebar-background: #fdd391; /*goldenrod*/
+  --global-color-sidebar-text: #2a3432;
+  --global-color-sidebar-content-background: #fbebdc;
+
+  --global-color-footer-background: #a0522d; /*rust*/
+  --global-color-footer-text: #faf5d6; /*eggshell*/
 }
