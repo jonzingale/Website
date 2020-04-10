@@ -9,8 +9,26 @@
   --global-color-v7 : #b0a79e; /*French Grey 30%*/
   --global-color-v8 : #f5d1af; /*Light Peach*/
   --global-color-v9 : #db9485; /*Walnut*/
-  --global-color-v10 : #c57b62; /*Nectar*/
+  --global-color-v10 : #db9485; /*Nectar*/
   --global-color-v11 : #99979d; /*Neutral Grey 40%*/
   --global-color-v12 : #b2babf; /*Warm Grey 50%*/
   --global-color-v13 : #748e9d; /*Slate Grey*/
+
+
+  /* undefined, inherited from main.css */
+  /*--global-color-card-background:*/
+
+  --global-color-h1: #f0b58b;
+  --global-color-code: #db9485;
+  --global-color-nav-background : #99979d;
+  --global-color-nav-text: #f9f5eb;
+  --global-color-header-background : #748e9d;
+  --global-color-header-text: #f5d1af;
+  --global-color-title: #e48985;
+  --global-color-intro-background: #f5d1af;
+  --global-color-intro-text: #748e9d;
+  --global-color-sidebar-background: #e9e0d7;
+  --global-color-content-link: #e48985;
+  --global-color-footer-background: #748e9d;
+  --global-color-footer-text: #f9f5eb;
 }
