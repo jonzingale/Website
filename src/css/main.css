@@ -1,13 +1,13 @@
-@import 'main-theme.css';
-/*@import 'raksahasa-theme.css';*/
-/*@import 'yoshimi-theme.css';*/
-/*@import 'mucha-theme.css';*/
-/*@import 'prayer-theme.css';*/
-@import 'job-theme.css';
+@import 'themes/main-theme.css';
+/*@import 'themes/raksahasa-theme.css';*/
+/*@import 'themes/yoshimi-theme.css';*/
+/*@import 'themes/mucha-theme.css';*/
+/*@import 'themes/prayer-theme.css';*/
+@import 'themes/job-theme.css';
 
-/*@import 'cycles-perfecta-theme.css';*/
-/*@import 'cigarrillos-theme.css';*/
-/*@import 'light-green-theme.css';*/
+/*@import 'themes/cycles-perfecta-theme.css';*/
+/*@import 'themes/cigarrillos-theme.css';*/
+/*@import 'themes/light-green-theme.css';*/
 
 
 @font-face {
