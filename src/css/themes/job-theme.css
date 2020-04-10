@@ -19,6 +19,7 @@
 
   /* undefined, inherited from main.css */
   /*--global-color-card-background: #ecc1bc;*/
+  --global-color-border: #94394b ;
   --global-color-sidebar-text: #2a3432;
   --global-color-sidebar-content-background: #fbebdc;
   --global-color-h1: #55376f;
@@ -27,9 +28,9 @@
   --global-color-nav-text: #94394b;
   --global-color-header-background : #a2cfc9;
   --global-color-header-text: #483c32;
-  --global-color-title: #94394b;
+  --global-color-title: #d05932;
   --global-color-intro-background: #ffffff;
-  --global-color-intro-text: #881c23;
+  --global-color-intro-text: #55376f;
   --global-color-sidebar-background: #c6b96d;
   --global-color-content-link: #d05932;
   --global-color-footer-background: #55565d;

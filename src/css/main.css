@@ -132,7 +132,7 @@ footer {
 .introduction {
   color: var(--global-color-intro-text);
   background-color: var(--global-color-intro-background);
-  padding-top: 1em;
+  padding: 1em;
   align-items:center;
   font-size: 1.2em;
   font-family: helvetica;
@@ -145,6 +145,10 @@ footer {
 }
 
 .sidebar-content {
+  border-style: solid;
+  border-color: var(--global-color-border);
+  border-width: 1px;
+
   font-family: helvetica;
   background-color: var(--global-color-sidebar-content-background);
   color: var(--global-color-sidebar-text);

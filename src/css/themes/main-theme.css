@@ -6,7 +6,8 @@
   --global-color-nav-text: #fbf7e9; /*light Cinnamon Toast*/
 
   --global-color-title: #e6a642; /*goldenrod*/
-  --global-color-h1: #9b96bd; /*strong periwinkle*/
+
+  --global-color-h1: #776db8; /*strong periwinkle*/
 
   --global-color-code: #525252; /* middle grey */
   --global-color-content-link: #a0522d; /* Rust */
@@ -18,6 +19,7 @@
   --global-color-sidebar-background: #fdd391; /*goldenrod*/
   --global-color-sidebar-text: #2a3432;
   --global-color-sidebar-content-background: #fbebdc;
+  --global-color-border: #94394b ;
 
   --global-color-footer-background: #a0522d; /*rust*/
   --global-color-footer-text: #faf5d6; /*eggshell*/
