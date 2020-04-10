@@ -1,10 +1,11 @@
 @import 'main-theme.css';
 /*@import 'raksahasa-theme.css';*/
 /*@import 'yoshimi-theme.css';*/
+/*@import 'mucha-theme.css';*/
+/*@import 'prayer-theme.css';*/
+@import 'job-theme.css';
 
 /*@import 'cycles-perfecta-theme.css';*/
-@import 'mucha-theme.css';
-/*@import 'prayer-theme.css';*/
 /*@import 'cigarrillos-theme.css';*/
 /*@import 'light-green-theme.css';*/
 
@@ -132,7 +133,8 @@ footer {
   color: var(--global-color-intro-text);
   background-color: var(--global-color-intro-background);
 
-  padding: 5%;
+  padding-left: 1em;
+  padding-top: 1em;
   align-items:center;
   font-size: 1.1em;
   font-family: helvetica;
@@ -149,7 +151,7 @@ footer {
   padding: 2em;
   grid-area: sidebarLeft;
   background-color: var(--global-color-sidebar-background);
-  -webkit-text-stroke: 0.1px #777;
+  /*-webkit-text-stroke: 0.1px #777;*/
 }
 
 .sidebar-right {

@@ -1,13 +1,35 @@
 /*./summarize.sh 10 job.jpg*/
-:root {
-  --global-color-v0 : #fffefe; /*Deco Orange Light*/
-  --global-color-v1 : #fcefe5; /*Peach*/
-  --global-color-v2 : #424242; /*Black*/
-  --global-color-v3 : #d97b5c; /*Burnt Ochre*/
-  --global-color-v4 : #858962; /*Marine Green*/
-  --global-color-v5 : #f89d92; /*Poppy Red*/
-  --global-color-v6 : #ded7c1; /*Light Tan*/
-  --global-color-v7 : #b8a68d; /*Light Umber 90%*/
-  --global-color-v8 : #0068e2; /*Copenhagen Blue*/
-  --global-color-v9 : #f5f2e3; /*brick white*/
+:root{
+  --global-color-v0 : #ffffff; /*Buff*/
+  --global-color-v1 : #3cbb8e; /*Spruce Green*/
+  --global-color-v2 : #8a8480; /*French Grey 70%*/
+  --global-color-v3 : #2a3432; /*Jet Black*/
+  --global-color-v4 : #55376f; /*Black Grape*/
+  --global-color-v5 : #94394b; /*Mahogany Red*/
+  --global-color-v6 : #fbebdc; /*Light Peach*/
+  --global-color-v7 : #a09ea4; /*Neutral Grey 50%*/
+  --global-color-v8 : #c06c64; /*Henna*/
+  --global-color-v9 : #db615b; /*Carmine Red*/
+  --global-color-v10 : #d39a87; /*Nectar*/
+  --global-color-v11 : #ecc1bc; /*Carmine Red Light*/
+  --global-color-v12 : #d05932; /*Burnt Ochre*/
+  --global-color-v13 : #a2cfc9; /*Parrot Green Light*/
+  --global-color-v14 : #c6b96d; /*Artichoke*/
+  --global-color-v15 : #881c23; /*Tuscan Red*/
+
+  /* undefined, inherited from main.css */
+  /*--global-color-card-background: #ecc1bc;*/
+  --global-color-h1: #55376f;
+  --global-color-code: #2a3432;
+  --global-color-nav-background : #fbebdc;
+  --global-color-nav-text: #94394b;
+  --global-color-header-background : #a2cfc9;
+  --global-color-header-text: #483c32;
+  --global-color-title: #94394b;
+  --global-color-intro-background: #ffffff;
+  --global-color-intro-text: #881c23;
+  --global-color-sidebar-background: #c6b96d;
+  --global-color-content-link: #d05932;
+  --global-color-footer-background: #55565d;
+  --global-color-footer-text: #ffffff;
 }

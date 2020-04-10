@@ -21,7 +21,7 @@ class TestTemplate extends Component {
           <h2 className='title'>Haskell on Jupyter</h2>
 
             <img className="header-img" alt='xkcd' src={imgUrl} />
-            <div>
+            <div className='introduction'>
               Recently, I have found myself leading a Haskell programming group
               in Santa Fe, New Mexico. These meetings have been a great
               opportunity to actually learn to apply Haskell. Included here are
