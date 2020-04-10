@@ -144,11 +144,17 @@ footer {
   padding-bottom: 0.5em;
 }
 
+.sidebar-content {
+  font-family: helvetica;
+  background-color: var(--global-color-card-background);
+  padding: 1em;
+}
+
 .sidebar-left {
   padding: 2em;
   grid-area: sidebarLeft;
+  color: var(--global-color-sidebar-text);
   background-color: var(--global-color-sidebar-background);
-  /*-webkit-text-stroke: 0.1px #777;*/
 }
 
 .sidebar-right {

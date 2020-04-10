@@ -12,8 +12,10 @@ class TestTemplate extends Component {
         <aside className='sidebar-left'>
           <h1>Santa Fe Haskell Coders</h1>
 
-          <div className='card'>
-            This a Sidebar?
+          <div className='sidebar-content'>
+            In Santa Fe and looking for a cool Haskell coding group?<p />
+            Send me an email for meeting time and place.<p />We often meet
+            over a pint at any one of many pubs and bistros around the city.
           </div>
         </aside>
 
