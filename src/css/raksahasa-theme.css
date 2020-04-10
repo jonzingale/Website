@@ -1,0 +1,32 @@
+/*./summarize.sh 12 raksahasa.jpg*/
+:root {
+  --global-color-v0 : #93725a; /*Dark Umber*/
+  --global-color-v1 : #cabd99; /*Bronze*/
+  --global-color-v2 : #e2d6cb; /*Light Umber 70%*/
+  --global-color-v3 : #dbcec1; /*Light Umber 80%*/
+  --global-color-v4 : #fcfaf8; /*Light Walnut*/
+  --global-color-v5 : #dbcec1; /*Light Umber 80%*/
+  --global-color-v6 : #b8a68d; /*Light Umber 90%*/
+  --global-color-v7 : #e9e0d7; /*Light Umber 60%*/
+  --global-color-v8 : #ffffff; /*Light Umber 20%*/
+  --global-color-v9 : #efe9e3; /*Light Umber 50%*/
+  --global-color-v10 : #f5f2ee; /*Light Umber 40%*/
+  --global-color-v11 : #e9e0d7; /*Light Umber 60%*/
+
+  /* undefined, inherited from main.css */
+  /*--global-color-header-text:*/
+  /*--global-color-h1:*/
+  /*--global-color-code:*/
+  /*--global-color-card-background:*/
+  /*--global-color-intro-text:*/
+
+  --global-color-nav-text: #f5f2ee; /*Light Umber 40%*/
+  --global-color-footer-text: #f5f2ee; /*Light Umber 40%*/
+  --global-color-intro-background: #f5f2ee; /*Light Umber 40%*/
+  --global-color-title: #c06c64; /*Henna*/ /*title*/
+  --global-color-sidebar-background: #efe9e3; /*Light Umber 50%*/
+  --global-color-nav-background : #93725a; /*Dark Umber*/
+  --global-color-content-link: #c06c64; /*Henna*/ /*title*/
+  --global-color-header-background : #a2cfc9; /*Parrot Green Light*/
+  --global-color-footer-background: #93725a; /*Dark Umber*/
+}

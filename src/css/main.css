@@ -1,15 +1,16 @@
 @import 'main-theme.css';
 /*@import 'goldenrod-theme.css';*/
-@import 'rounder-theme.css';
-/*@import 'light-green-theme.css';*/
+/*@import 'rounder-theme.css';*/
 
- /*These are really good*/
-/*@import 'desert-sarah-theme.css';*/
-/*@import 'woman-in-rain-theme.css';*/
 /*@import 'cycles-perfecta-theme.css';*/
-/*@import 'mucha1-theme.css';*/
 /*@import 'mucha2-theme.css';*/
-/*@import 'coast-theme.css';*/
+/*@import 'prayer-theme.css';*/
+/*@import 'cigarrillos-theme.css';*/
+/*@import 'light-green-theme.css';*/
+/*@import 'goldenrod-theme.css';*/
+/*@import 'yoshimi-theme.css';*/
+@import 'raksahasa-theme.css';
+
 
 @font-face {
   font-family: "Moon Light";
@@ -25,24 +26,54 @@
   font-style: normal;
 }
 
+/* NOTE: TO USE GRIDS FOLLOW RULES BELOW.*/
+/* https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids */
+/*- You need to have every cell of the grid filled.*/
+/*- To span across two cells, repeat the name.*/
+/*- To leave a cell empty, use a . (period).*/
+/*- Areas must be rectangular — you can’t have an L-shaped area for example.*/
+/*- Areas can't be repeated in different locations.*/
+
+.container {
+  display: grid;
+
+  grid-template-areas: 
+      "header header header"
+      "sidebarLeft content sidebarRight"
+      "footer footer footer";
+
+  grid-template-columns: 0.7fr 2.2fr 0.5fr;
+}
+
+header {
+  grid-area: header;
+  font-family: 'helvetica';
+  color: var(--global-color-header-text);
+  background-color: var(--global-color-header-background);
+  text-align: right;
+  font-size: 2.3em;
+  padding-bottom: 0.5em;
+  padding-top: 0.5em;
+  padding-right: 1em;
+}
+
 nav {
   width: 50%;
   position: fixed;
   padding: 1.2em;
-  background-color: var(--global-color-d1);
-  /*background-color: var(--global-color-v7);*/
+  background-color: var(--global-color-nav-background);
 }
 
 .nav-link {
   font-size: 1.5em;
-  color: var(--global-color-l3);
+  color: var(--global-color-nav-text);
   margin: 1em;
 }
 
 h1 {
   font-family: 'Oranienbaum';
-  font-size: 3em;
-  color: var(--global-color-d2);
+  font-size: 2.3em;
+  color: var(--global-color-h1);
 }
 
 h2 {
@@ -59,26 +90,38 @@ h3 {
 
 a {
   text-decoration: none;
-  color: var(--global-color-rust);
+  color: var(--global-color-content-link);
 }
 
 code {
   color: var(--global-color-code);
 }
 
-/*footer {*/
-  /*color: var(--global-color-rust);*/
-/*}*/
+article {
+  padding-left: 3em;
+  grid-area: content;
+  padding-bottom: 10em;
+  font-size: 1.28em;
+}
 
-.content {
-  margin-top: 5%;
-  margin-bottom: 7%;
-  margin-left: 10%;
-  width:70%;
-  align-items:center;
-  font-size: 1.2em;
-  font-family: helvetica;
-  color: var(--global-color-d4);
+footer {
+  /*footer follows page*/
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+
+  grid-area: footer;
+  color: var(--global-color-footer-text);
+  background-color: var(--global-color-footer-background);
+  text-align: left;
+  font-size: 1.5em;
+  padding: 0.7em;
+}
+
+.title {
+  font-family: 'Moon Light';
+  font-size: 3em;
+  color: var(--global-color-title);
 }
 
 .header-img {
@@ -88,7 +131,30 @@ code {
   margin-bottom: 7%;
 }
 
+.introduction {
+  color: var(--global-color-intro-text);
+  background-color: var(--global-color-intro-background);
+
+  padding: 5%;
+  align-items:center;
+  font-size: 1.1em;
+  font-family: helvetica;
+}
+
 .card {
+  background-color: var(--global-color-card-background);
+  padding-left: 1em;
   padding-top: 1em;
-  padding-bottom: 2em; 
+  padding-bottom: 0.5em;
+}
+
+.sidebar-left {
+  padding: 2em;
+  grid-area: sidebarLeft;
+  background-color: var(--global-color-sidebar-background);
+  -webkit-text-stroke: 0.1px #777;
+}
+
+.sidebar-right {
+  grid-area: sidebarRight;
 }

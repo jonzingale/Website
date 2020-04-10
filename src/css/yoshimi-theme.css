@@ -1,0 +1,13 @@
+/*./summarize.sh 12 yoshimi.jpg*/
+:root {
+  --global-color-v0 : #757a88; /*Neutral Grey 90%*/
+  --global-color-v1 : #e48985; /*Carmine Red*/
+  --global-color-v2 : #e3a08a; /*Pumpkin Orange*/
+  --global-color-v3 : #c7caca; /*French Grey 60%*/
+  --global-color-v4 : #e1baac; /*Nectar*/
+  --global-color-v5 : #f2d09c; /*Goldenrod*/
+  --global-color-v6 : #ffffff; /*Ash Grey*/
+  --global-color-v7 : #e9e0d7; /*Light Umber 60%*/
+  --global-color-v8 : #f9f5eb; /*Cinnamon Toast*/
+  --global-color-v9 : #a39e9a; /*French Grey 70%*/
+}

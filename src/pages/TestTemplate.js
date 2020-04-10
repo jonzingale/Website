@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import './../css/test-template.css'
+import './../css/main.css'
 
 class TestTemplate extends Component {
   render() {
     return(
       <div className='container'>
-        <header>This is the Header</header>
+        <header>jonzingale@gmail.com</header>
 
         <aside className='sidebar-left'>
           <h1>This is the Margin Header.</h1>

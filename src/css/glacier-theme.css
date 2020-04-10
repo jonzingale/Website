@@ -1,0 +1,16 @@
+ /*./summarize.sh 12 glacier.jpg*/
+
+:root {
+  --global-color-v0 : #b8a68d; /*Light Umber 90%*/
+  --global-color-v1 : #ffffff; /*Neutral Grey 10%*/
+  --global-color-v2 : #754d3d; /*Sepia*/
+  --global-color-v3 : #b0bfc7; /*Slate Grey*/
+  --global-color-v4 : #eaeced; /*Warm Grey 50%*/
+  --global-color-v5 : #e2d6cb; /*Light Umber 70%*/
+  --global-color-v6 : #d5cb91; /*Artichoke*/
+  --global-color-v7 : #9b9c66; /*Moss Green*/
+  --global-color-v8 : #ba9675; /*Light Umber*/
+  --global-color-v9 : #faf3e9; /*Peach Beige*/
+  --global-color-v10 : #aa6839; /*Chocolate*/
+  --global-color-v11 : #424242; /*Black*/
+}
