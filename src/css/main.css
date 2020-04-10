@@ -96,7 +96,7 @@ code {
 }
 
 article {
-  padding-left: 3em;
+  padding-left: 4em;
   grid-area: content;
   padding-bottom: 10em;
   font-size: 1.28em;
@@ -132,17 +132,14 @@ footer {
 .introduction {
   color: var(--global-color-intro-text);
   background-color: var(--global-color-intro-background);
-
-  padding-left: 1em;
   padding-top: 1em;
   align-items:center;
-  font-size: 1.1em;
+  font-size: 1.2em;
   font-family: helvetica;
 }
 
 .card {
   background-color: var(--global-color-card-background);
-  padding-left: 1em;
   padding-top: 1em;
   padding-bottom: 0.5em;
 }
