@@ -7,7 +7,7 @@ class TestTemplate extends Component {
 
     return(
       <div className='container'>
-        <header>This is the Header</header>
+        <header>Haskell on Jupyter</header>
 
         <aside className='sidebar-left'>
           <h1>Santa Fe Haskell Coders</h1>
@@ -85,7 +85,7 @@ class TestTemplate extends Component {
             </div>
         </article>
 
-        <aside className='sidebar-right'>This is another sidebar</aside>
+        <aside className='sidebar-right'>.</aside>
       </div>
     )
   }

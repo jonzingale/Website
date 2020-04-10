@@ -49,10 +49,10 @@ header {
   color: var(--global-color-header-text);
   background-color: var(--global-color-header-background);
   text-align: right;
-  font-size: 2.3em;
-  padding-bottom: 0.5em;
-  padding-top: 0.5em;
-  padding-right: 1em;
+  font-size: 1.3em;
+  padding-bottom: 1.2em;
+  padding-top: 1.3em;
+  padding-right: 2em;
 }
 
 nav {
