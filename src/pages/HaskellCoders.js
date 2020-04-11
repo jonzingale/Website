@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './../css/main.css'
 
-class TestTemplate extends Component {
+class HaskellCoders extends Component {
   render() {
     const imgUrl = '/images/haskelltospreadsheet.png'
 
@@ -93,4 +93,4 @@ class TestTemplate extends Component {
   }
 }
 
-export default TestTemplate;
+export default HaskellCoders;

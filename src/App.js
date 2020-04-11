@@ -4,6 +4,7 @@ import { Navbar, Nav } from 'react-bootstrap';
 
 import TestTemplate from './pages/TestTemplate';
 import HaskellCoders from './pages/HaskellCoders';
+import SvgTemplate from './pages/SvgTemplate';
 
 import './css/main.css'
 
@@ -18,6 +19,7 @@ class App extends Component {
               <Nav>
                 <Nav.Link href="/">Home</Nav.Link>
                 <Nav.Link href="/haskell-coding-group">HaskellCoders</Nav.Link>
+                <Nav.Link href="/svg-template">SvgTemplate</Nav.Link>
               </Nav>
             </Navbar>
 
@@ -26,6 +28,9 @@ class App extends Component {
             <Switch>
               <Route path="/haskell-coding-group">
                 <HaskellCoders />
+              </Route>
+              <Route path="/svg-template">
+                <SvgTemplate />
               </Route>
               <Route path="/">
                 <TestTemplate />
