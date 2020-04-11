@@ -10,10 +10,10 @@ class SvgTemplate extends Component {
   render() {
     return(
       <div className='container'>
-        <header>SVG Template</header>
+        <header>SVG Templates</header>
 
         <aside className='sidebar-left'>
-          <h1>SVG Template</h1>
+          <h1>SVG Templates</h1>
 
           <div className='sidebar-content'>
             This is a space for testing new svg ideas.
@@ -21,7 +21,7 @@ class SvgTemplate extends Component {
         </aside>
 
         <article>
-          <h2 className='title'>Templates:</h2>
+          <h2 className='title'></h2>
             <BeanSoup />
             <PlumBlossom />
             <TreeTemplate1 />
