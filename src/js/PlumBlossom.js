@@ -4,14 +4,17 @@ import * as d3 from 'd3'
 class PlumBlossom extends Component {
 
   componentDidMount() {
-    var lights = [0,1,0,0,1,1,1,1]
-
     var svg = d3.selectAll('#plum-blossom')
     var svg_width = svg.style('width').replace('px','')
+    var svg_height = svg.style('height').replace('px','')
 
     var xScale = d3.scaleLinear()
-      .domain([0, 7])
-      .range([70, svg_width/1.2])
+      .domain([0, 1]).range([0, svg_width])
+
+    var yScale = d3.scaleLinear()
+      .domain([0, 1]).range([0, svg_height])
+
+    function rando(lim) { return Math.floor(Math.random() * lim) }
 
     // background box
     svg.append('rect')
@@ -22,54 +25,60 @@ class PlumBlossom extends Component {
       .attr('fill','#f5f2e3')
       .attr('width','100%')
 
-    var points = [
-      [0  , 80],
-      [100, 300],
-      [300, 200],
-      [500, 250],
-      [700, 240],
-      [900, 280]
-    ];
-
     var lineGenerator = d3.line();
+
+    var points = [[700, 340], [680, 180], [500, 120], [400, 200]];
     var pathData = lineGenerator(points);
     svg.append('path').attr('d', pathData)
     .attr('stroke', 'black')
+    .attr('stroke-width', 30)
     .attr('fill', 'none')
 
-
-    var points = [
-      [0  , 0],
-      [600, 180],
-      [600, 250],
-      [0, 400],
-    ];
-
-    var lineGenerator = d3.line();
+    points = [[520, 180], [700, 80], [500, 10]];
     var pathData = lineGenerator(points);
     svg.append('path').attr('d', pathData)
     .attr('stroke', 'black')
-    .attr('stroke-width', '2px')
+    .attr('stroke-width', 20)
+    .attr('fill', 'none')
+
+    points = [[680, 180], [400, 60], [230, 200]];
+    var pathData = lineGenerator(points);
+    svg.append('path').attr('d', pathData)
+    .attr('stroke', 'black')
+    .attr('stroke-width', 20)
     .attr('fill', 'none')
 
     // lights
+    var data = []
+    for (let i=0; i < 300; i++) { data.push(i)}
+
     svg.append("g")
-      .attr("class", "lights")
+      .attr("class", "blue-circles")
       .selectAll("circle")
-      .data(lights).enter().append("circle")
+      .data(data).enter().append("circle")
         .attr('id', function(d, i) { return i })
-        .attr('cy', 90).attr("r", 17)
-        .attr('cx', function(d, i) { return xScale(i) })
-        .attr('fill', function(d) {
-          return d3.schemeTableau10[d*2 + 3] // 3 or 5
-        })
+        .attr("r", function(d) { return Math.random()*25 })
+        .attr('cy', function(d) { return yScale(Math.random())/1.7 })
+        .attr('cx', function(d) { return xScale(Math.random())/1.7 + svg_width/7 })
+        .attr('fill', function(d) { return d3.interpolateBlues(d/1000) })
+        .attr("opacity", function(d) { return Math.random() + 0.7 })
         .attr('stroke', 'black')
         .attr('stroke-width', '1.5px')
 
-    svg.append('text')
-      .attr('id', 'lights-label')
-      .attr('x', 20).attr('y', 30)
-      .text('Plum Blossom')
+    data = []
+    for (let i=0; i < 150; i++) { data.push(i)}
+
+    svg.append("g")
+      .attr("class", "pink-circles")
+      .selectAll("circle")
+      .data(data).enter().append("circle")
+        .attr('id', function(d, i) { return i })
+        .attr("r", 3)
+        .attr('cy', function(d) { return yScale(Math.random())/2 })
+        .attr('cx', function(d) { return xScale(Math.random())/2 + svg_width/6 })
+        .attr('fill', function(d) { return d3.interpolateReds(d/200) })
+        .attr('stroke', 'black')
+        .attr('stroke-width', '1.5px')
   }
 
   render(){
