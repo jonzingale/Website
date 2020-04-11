@@ -14,42 +14,56 @@ class PlumBlossom extends Component {
     var yScale = d3.scaleLinear()
       .domain([0, 1]).range([0, svg_height])
 
-    function rando(lim) { return Math.floor(Math.random() * lim) }
-
     // background box
     svg.append('rect')
       .attr('class', 'background-box')
       .attr('x', 1).attr('y', 0)
       .attr('stroke','#777')
       .attr('stroke-width','0.3em')
-      // .attr('fill','#f5f2e3')
-      .attr('fill','#b0a79e')
+      .attr('fill','#f5f2e3') // cream paper
       .attr('width','100%')
 
-    var lineGenerator = d3.line();
+    var lineGenerator = d3.line().curve(d3.curveBasis)
+    var pathData, points
 
-    var points = [[700, 340], [680, 180], [500, 120], [400, 200]];
-    var pathData = lineGenerator(points);
+    // abstract line
+    points = [[0, 260],[100, 300],[300, 280],[700, 240],[svg_width, 280]];
+    pathData = lineGenerator(points);
     svg.append('path').attr('d', pathData)
     .attr('stroke', 'black')
+    .attr('fill', 'none')
+
+    // tree lines
+    lineGenerator = d3.line()
+    points = [[700, 340], [680, 180], [500, 120], [400, 200]];
+    pathData = lineGenerator(points);
+    svg.append('path').attr('d', pathData)
+    .attr('stroke', '#2c202f')
     .attr('stroke-width', 30)
     .attr('fill', 'none')
 
-    points = [[520, 180], [700, 80], [500, 10]];
-    var pathData = lineGenerator(points);
+    points = [[710, 338], [690, 180]];
+    pathData = lineGenerator(points);
     svg.append('path').attr('d', pathData)
-    .attr('stroke', 'black')
-    .attr('stroke-width', 20)
+    .attr('stroke', '#881c23')
+    .attr('stroke-width', 10)
+    .attr("opacity", 0.5)
+
+    points = [[520, 180], [700, 80], [500, 10]];
+    pathData = lineGenerator(points);
+    svg.append('path').attr('d', pathData)
+    .attr('stroke', '#2c202f')
+    .attr('stroke-width', 17)
     .attr('fill', 'none')
 
     points = [[680, 180], [400, 60], [230, 200]];
-    var pathData = lineGenerator(points);
+    pathData = lineGenerator(points);
     svg.append('path').attr('d', pathData)
-    .attr('stroke', 'black')
-    .attr('stroke-width', 20)
+    .attr('stroke', '#2c202f')
+    .attr('stroke-width', 17)
     .attr('fill', 'none')
 
-    // circles
+    // tree circles
     var data = []
     for (let i=0; i < 300; i++) { data.push(i)}
 
@@ -58,10 +72,10 @@ class PlumBlossom extends Component {
       .selectAll("circle")
       .data(data).enter().append("circle")
         .attr('id', function(d, i) { return i })
-        .attr("r", function(d) { return Math.random()*25 })
-        .attr('cy', function(d) { return yScale(Math.random())/1.7 })
-        .attr('cx', function(d) { return xScale(Math.random())/1.7 + svg_width/7 })
-        .attr('fill', function(d) { return d3.interpolateBlues(d/1000) })
+        .attr("r", function(d) { return Math.random()*30 })
+        .attr('cy', function(d) { return yScale(Math.random())/1.9 })
+        .attr('cx', function(d) { return xScale(Math.random())/1.3 + svg_width/7 })
+        .attr('fill', function(d) { return d3.interpolateBlues(d/1200) })
         .attr("opacity", function(d) { return Math.random() + 0.7 })
         // .attr('stroke', 'black')
         .attr('stroke-width', '1.5px')
@@ -75,8 +89,8 @@ class PlumBlossom extends Component {
       .data(data).enter().append("circle")
         .attr('id', function(d, i) { return i })
         .attr("r", 3)
-        .attr('cy', function(d) { return yScale(Math.random())/2 })
-        .attr('cx', function(d) { return xScale(Math.random())/2 + svg_width/6 })
+        .attr('cy', function(d) { return yScale(Math.random())/1.9 })
+        .attr('cx', function(d) { return xScale(Math.random())/1.4 + svg_width/6 })
         .attr('fill', function(d) { return d3.interpolateReds(d/200) })
         // .attr('stroke', 'black')
         .attr('stroke-width', '1.5px')

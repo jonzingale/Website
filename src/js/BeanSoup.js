@@ -14,7 +14,7 @@ class BeanSoup extends Component {
     var data = []
     for (let i=0; i < 300; i++) { data.push(i) }
 
-    var beans = svg.append("g")
+    svg.append("g")
       .attr("class", "beans")
       .selectAll("circle")
       .data(data).enter().append("circle")
@@ -42,14 +42,14 @@ class BeanSoup extends Component {
       .attr('opacity', 0.5)
 
     var defs = svg.append("defs")
-    var filter = defs.append("defs")
+    defs.append("defs")
       .append("filter")
       .attr("id", "blur")
       .append("feGaussianBlur")
       .attr("stdDeviation", 3)
 
     // oil bubbles
-    var data = []
+    data = []
     for (let i=0; i < 100; i++) { data.push(i) }
 
     svg.append("g")

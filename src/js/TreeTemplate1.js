@@ -4,17 +4,14 @@ import * as d3 from 'd3'
 class TreeTemplate1 extends Component {
 
   componentDidMount() {
-    var lights = [0,1,0,0,1,1,1,1]
-
     var svg = d3.selectAll('#tree1')
-    var svg_width = svg.style('width').replace('px','')
     var svg_height = svg.style('height').replace('px','')
-
-    var xScale = d3.scaleLinear()
-      .domain([0, 1]).range([0, svg_width])
 
     var yScale = d3.scaleLinear()
       .domain([0, 1]).range([0, svg_height])
+
+    var cScale = d3.scaleLinear()
+      .domain([0, 1200]).range([0, 1]) // fix domain to circles
 
     // background box
     svg.append('rect')
@@ -41,51 +38,62 @@ class TreeTemplate1 extends Component {
     .attr('fill', 'none')
 
     points = [[0, 0],[600, 180],[600, 250],[0, 400]];
-    var pathData = lineGenerator(points);
+    pathData = lineGenerator(points);
     svg.append('path').attr('d', pathData)
     .attr('stroke', 'black')
     .attr('stroke-width', '2px')
     .attr('fill', 'none')
 
-    function yScale(i) { return(i*80 + 180) }
     var data = []
-    for (let i=0; i < 6; i++) { data.push([i*80 + 80, 0]) }
+    for (let i=0; i < 6; i++) { data.push([i*80 + 80, i*25]) }
 
-    svg.selectAll('horizontal-lines')
+    svg.selectAll('vertical-lines')
        .data(data).enter()
        .append("path")
        .attr('stroke', 'black')
        .attr('stroke-width', 20)
        .attr('fill', 'none')
        .attr('d', function(d, i) {
-          let pathData = lineGenerator([d, [i*80 + 80, svg_width*0.3 - i*20 + 60]])
+          let pathData = lineGenerator([d, [i*80 + 80, svg_height - i*20]])
           return(pathData)
         })
 
-    svg.selectAll('horizontal-lines')
+    svg.selectAll('vertical-lines')
        .data(data).enter()
        .append("path")
        .attr('stroke', '#ddd')
        .attr('stroke-width', 10)
        .attr('fill', 'none')
        .attr('d', function(d, i) {
-          let pathData = lineGenerator([d, [i*80 + 75, svg_width*0.3 - i*20 + 60]])
+          let pathData = lineGenerator([d, [i*80 + 75, svg_height - i*20]])
           return(pathData)
         })
 
+    svg.selectAll('vertical-lines')
+       .data(data).enter()
+       .append("path")
+       .attr('stroke', '#86b3b9')
+       .attr('stroke-width', 4)
+       .attr('fill', 'none')
+       .attr('d', function(d, i) {
+          let pathData = lineGenerator([d, [i*80 + 80, svg_height - i*20]])
+          return(pathData)
+        })
+
+
     // circles
-    var data = []
-    for (let i=0; i < 300; i++) { data.push(i)}
+    data = []
+    for (let i=0; i < 400; i++) { data.push(i)}
 
     svg.append("g")
-      .attr("class", "blue-circles")
+      .attr("class", "tree-circles")
       .selectAll("circle")
       .data(data).enter().append("circle")
         .attr("r", function(d) { return Math.random()*25 })
-        .attr('cy', function(d) { return yScale(Math.random())/2 - 50*(d/300)})
-        .attr('cx', function(d) { return xScale(Math.random()) / 2 })
-        .attr('fill', function(d) { return d3.interpolateGreens(d/1000) })
-        .attr("opacity", function(d) { return Math.random() + 0.7 })
+        .attr('cy', function(d) { return yScale(Math.random())/2.2})
+        .attr('cx', function(d) { return Math.random()*550 }) //end of trees
+        .attr('fill', function(d) { return d3.interpolateGreens(cScale(d)) })
+        .attr("opacity", function(d) { return Math.random() + 0.65 })
         .attr('stroke', 'black')
         .attr('stroke-width', '1.5px')
   }

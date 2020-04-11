@@ -4,8 +4,6 @@ import * as d3 from 'd3'
 class NoteBook extends Component {
 
   componentDidMount() {
-    var lights = [0,1,0,0,1,1,1,1]
-
     var svg = d3.selectAll('#notebook')
     var svg_width = svg.style('width').replace('px','')
 
