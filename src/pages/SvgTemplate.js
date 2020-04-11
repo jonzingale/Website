@@ -22,10 +22,10 @@ class SvgTemplate extends Component {
 
         <article>
           <h2 className='title'>Templates:</h2>
-            <Notebook />
             <BeanSoup />
             <PlumBlossom />
             <TreeTemplate1 />
+            <Notebook />
         </article>
 
         <aside className='sidebar-right'>.</aside>
