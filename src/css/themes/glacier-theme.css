@@ -1,5 +1,4 @@
  /*./summarize.sh 12 glacier.jpg*/
-
 :root {
   --global-color-v0 : #b8a68d; /*Light Umber 90%*/
   --global-color-v1 : #ffffff; /*Neutral Grey 10%*/
@@ -13,4 +12,23 @@
   --global-color-v9 : #faf3e9; /*Peach Beige*/
   --global-color-v10 : #aa6839; /*Chocolate*/
   --global-color-v11 : #424242; /*Black*/
+
+  /* undefined, inherited from main.css */
+  /*--global-color-card-background: #ecc1bc;*/
+  --global-color-border: #aa6839;
+  --global-color-sidebar-text: #40514e;
+  --global-color-sidebar-content-background: #fbebdc;
+  --global-color-h1: #424242;
+  --global-color-code: #9b9c66;
+  --global-color-nav-background : #40514e;
+  --global-color-nav-text: #d5cb91;
+  --global-color-header-background : #b0bfc7;
+  --global-color-header-text: #424242;
+  --global-color-title: #754d3d;
+  --global-color-intro-background: #ffffff;
+  --global-color-intro-text: #40514e;
+  --global-color-sidebar-background: #d5cb91;
+  --global-color-content-link: #aa6839;
+  --global-color-footer-background: #b8a68d;
+  --global-color-footer-text: #eaeced;
 }

@@ -11,4 +11,23 @@
   --global-color-v7 : #5e5f3d; /*Moss Green*/
   --global-color-v8 : #f98240; /*Orange*/
   --global-color-v9 : #cbb6a1; /*Light Umber 50%*/
+
+  /* undefined, inherited from main.css */
+  /*--global-color-card-background: #ecc1bc;*/
+  --global-color-border: #aa6839 ;
+  --global-color-sidebar-text: #40514e;
+  --global-color-sidebar-content-background: #fbebdc;
+  --global-color-h1: #faf5d6;
+  --global-color-code: #f98240;
+  --global-color-nav-background : #a69257;
+  --global-color-nav-text: #faf3e9;
+  --global-color-header-background : #ccb164;
+  --global-color-header-text: #faf5d6;
+  --global-color-title: #5e5f3d;
+  --global-color-intro-background: #ffffff;
+  --global-color-intro-text: #5e5f3d;
+  --global-color-sidebar-background: #866343;
+  --global-color-content-link: #866343;
+  --global-color-footer-background: #cbb6a1;
+  --global-color-footer-text: #faf5d6;
 }
