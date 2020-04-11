@@ -42,7 +42,7 @@ class NoteBook extends Component {
        .attr('stroke', '#ddd')
 
     // Text
-    data = ["Notebook: A home for explorations.", "",
+    data = ["Some Impressions:", "",
             "Bean Soup", "Ornamental Plum", "Cottonwood"]
     svg.selectAll('notes').data(data).enter()
       .append('text').text(d => d)

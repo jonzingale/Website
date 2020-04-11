@@ -25,12 +25,12 @@ class Navigation extends Component {
                 renders the first one that matches the current URL. */}
             <Switch>
               <Route path="/haskell-coding-group">
-                <HaskellCoders />
+                <HaskellCoders title='Haskell on Jupyter'/>
               </Route>
               <Route path="/svg-template">
-                <SvgTemplate />
+                <SvgTemplate title='svg notebook'/>
               </Route>
-              <Route path="/">
+              <Route path="/" title='jonzingale@gmail.com'>
                 <TestTemplate />
               </Route>
             </Switch>

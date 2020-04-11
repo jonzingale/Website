@@ -7,7 +7,7 @@ class HaskellCoders extends Component {
 
     return(
       <div className='container'>
-        <header>Haskell on Jupyter</header>
+        <header>{this.props.title}</header>
 
         <aside className='sidebar-left'>
           <h1>Santa Fe Haskell Coders</h1>
@@ -20,7 +20,7 @@ class HaskellCoders extends Component {
         </aside>
 
         <article>
-          <h2 className='title'>Haskell on Jupyter</h2>
+          <h2 className='title'>{this.props.title}</h2>
 
             <img className="header-img" alt='xkcd' src={imgUrl} />
             <div className='introduction'>
