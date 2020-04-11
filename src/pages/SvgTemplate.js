@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import TreeTemplate1 from './../js/TreeTemplate1'
-import PlumBlossom from './../js/PlumBlossom'
-import BeanSoup from './../js/BeanSoup'
+import TreeTemplate1 from './../js/TreeTemplate1.jsx'
+import PlumBlossom from './../js/PlumBlossom.jsx'
+import BeanSoup from './../js/BeanSoup.jsx'
 import Notebook from './../js/Notebook.jsx'
 
 import './../css/main.css'

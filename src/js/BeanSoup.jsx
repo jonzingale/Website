@@ -48,6 +48,8 @@ class BeanSoup extends Component {
       .append("feGaussianBlur")
       .attr("stdDeviation", 3)
 
+    function rando(lim) { return Math.floor(Math.random() * lim) }
+
     // oil bubbles
     data = []
     for (let i=0; i < 100; i++) { data.push(i) }
@@ -57,22 +59,13 @@ class BeanSoup extends Component {
       .selectAll("circle")
       .data(data).enter().append("circle")
         .attr('id', function(d, i) { return i })
-        .attr("r", function(d) {
-          return Math.floor(Math.random() * 20)
-        })
-        .attr('cx', function(d) {
-          return Math.floor(Math.random() * svg_width)
-        })
-        .attr('cy', function(d) {
-          return Math.floor(Math.random() * 400)
-        })
-        .attr('fill', function(d) {
-          let r = Math.floor(Math.random() * flaxScheme.length)
-          return flaxScheme[r]
-        })
-        .attr('opacity', 0.4)
-        .attr('stroke', 'yellow')
+        .attr("r", function(d) { return rando(20) })
+        .attr('cx', function(d) { return rando(svg_width) })
+        .attr('cy', function(d) { return rando(400) })
+        .attr('fill', function(d) { return flaxScheme[rando(flaxScheme.length)] })
         .attr('stroke-width', '1.5px')
+        .attr('stroke', 'yellow')
+        .attr('opacity', 0.5)
   }
 
   render(){
