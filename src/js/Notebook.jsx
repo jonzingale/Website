@@ -6,6 +6,7 @@ class NoteBook extends Component {
   componentDidMount() {
     var svg = d3.selectAll('#notebook')
     var svg_width = svg.style('width').replace('px','')
+    var svg_height = svg.style('height').replace('px','')
 
     svg.append('rect')
       .attr('id','paper-box')
@@ -16,16 +17,14 @@ class NoteBook extends Component {
     // Paper
     svg.append('rect')
       .attr('y', 100)
-      .attr('stroke','#777')
       .attr('class', 'paper')
       .attr('width','70%')
       .attr('fill','white')
-      .attr('opacity', 1)
 
     // Lines
     function yScale(i) { return(i*40 + 180) }
     var data = []
-    for (let i=0; i < 6; i++) { data.push([0, yScale(i)]) }
+    for (let i=0; i < 13; i++) { data.push([0, yScale(i)]) }
 
     var lineGenerator = d3.line();
 
@@ -33,28 +32,29 @@ class NoteBook extends Component {
        .data(data).enter()
        .append("path")
        .attr('stroke', '#754d3d')
-       .attr('stroke-width', '1px')
-       .attr('fill', 'none')
        .attr('d', function(d, i) {
           let pathData = lineGenerator([d, [svg_width*0.7, yScale(i)]])
           return(pathData)
         })
 
-    data = [[100, 100], [100, 400]]
+    data = [[100, 100], [100, svg_height]]
     svg.append('path').attr('d', lineGenerator(data))
        .attr('stroke', '#ddd')
 
     // Text
-    svg.append('text')
+    data = ["Notebook: A home for explorations.", "",
+            "Bean Soup", "Ornamental Plum", "Cottonwood"]
+    svg.selectAll('notes').data(data).enter()
+      .append('text').text(d => d)
       .attr('id', 'lights-label')
-      .attr('x', 120).attr('y', 215)
-      .text('Notebook: A home for explorations.')
+      .attr('x', 120)
+      .attr('y', (d,i) => 215 + i*41 )
   }   
 
   render(){
     return(
       <div className='card'>
-        <svg id='notebook' width='100%' height='400px'></svg>
+        <svg id='notebook' width='100%' height='700px'></svg>
       </div>
     )
   }
