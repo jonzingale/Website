@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import * as d3 from 'd3'
 
-class TreeTemplate1 extends Component {
+class PlumBlossom extends Component {
 
   componentDidMount() {
     var lights = [0,1,0,0,1,1,1,1]
 
-    var svg = d3.selectAll('#tree1')
+    var svg = d3.selectAll('#plum-blossom')
     var svg_width = svg.style('width').replace('px','')
 
     var xScale = d3.scaleLinear()
@@ -37,13 +37,15 @@ class TreeTemplate1 extends Component {
     .attr('stroke', 'black')
     .attr('fill', 'none')
 
-    points = [
+
+    var points = [
       [0  , 0],
       [600, 180],
       [600, 250],
       [0, 400],
     ];
 
+    var lineGenerator = d3.line();
     var pathData = lineGenerator(points);
     svg.append('path').attr('d', pathData)
     .attr('stroke', 'black')
@@ -67,16 +69,16 @@ class TreeTemplate1 extends Component {
     svg.append('text')
       .attr('id', 'lights-label')
       .attr('x', 20).attr('y', 30)
-      .text('cotton wood lined street')
+      .text('Plum Blossom')
   }
 
   render(){
     return(
       <div className='card'>
-        <svg id='tree1' width='100%' height='400px'></svg>
+        <svg id='plum-blossom' width='100%' height='400px'></svg>
       </div>
     )
   }
 }
 
-export default TreeTemplate1;
+export default PlumBlossom;
