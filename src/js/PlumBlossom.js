@@ -45,7 +45,7 @@ class PlumBlossom extends Component {
     points = [[710, 338], [690, 180]];
     pathData = lineGenerator(points);
     svg.append('path').attr('d', pathData)
-    .attr('stroke', '#881c23')
+    .attr('stroke', '#6f4891')
     .attr('stroke-width', 10)
     .attr("opacity", 0.5)
 
