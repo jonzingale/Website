@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Navbar, Nav } from 'react-bootstrap';
 
-import TestTemplate from './../pages/TestTemplate';
-import HaskellCoders from './../pages/HaskellCoders';
-import SvgTemplate from './../pages/SvgTemplate';
+import TestTemplate from './../pages/TestTemplate.jsx';
+import HaskellCoders from './../pages/HaskellCoders.jsx';
+import SvgTemplate from './../pages/SvgTemplate.jsx';
 
-class App extends Component {
+class Navigation extends Component {
 
   render() {
     return (
@@ -42,4 +42,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Navigation;
