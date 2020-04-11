@@ -10,4 +10,23 @@
   --global-color-v6 : #55565d; /*Neutral Grey 80%*/
   --global-color-v7 : #939898; /*French Grey 60%*/
   --global-color-v8 : #e4d5c0; /*Light Umber 20%*/
+
+  /* undefined, inherited from main.css */
+  /*--global-color-card-background: #ecc1bc;*/
+  --global-color-border: #aa6839;
+  --global-color-sidebar-text: #55565d;
+  --global-color-sidebar-content-background: #fbebdc;
+  --global-color-h1: #4170b4;
+  --global-color-code: #23242b;
+  --global-color-nav-background : #4170b4;
+  --global-color-nav-text: #d5cb91;
+  --global-color-header-background : #f47145;
+  --global-color-header-text: #23242b;
+  --global-color-title: #23242b;
+  --global-color-intro-background: #b8c7de;
+  --global-color-intro-text: #23242b;
+  --global-color-sidebar-background: #e4d5c0;
+  --global-color-content-link: #f47145;
+  --global-color-footer-background: #23242b;
+  --global-color-footer-text: #eaeced;
 }
