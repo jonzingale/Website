@@ -10,13 +10,13 @@ class SvgTemplate extends Component {
   render() {
     return(
       <div className='container'>
-        <header>Haskell on Jupyter</header>
+        <header>SVG Template</header>
 
         <aside className='sidebar-left'>
           <h1>SVG Template</h1>
 
           <div className='sidebar-content'>
-            This is a space for testing new svg ideas
+            This is a space for testing new svg ideas.
           </div>
         </aside>
 

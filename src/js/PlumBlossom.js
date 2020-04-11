@@ -22,7 +22,8 @@ class PlumBlossom extends Component {
       .attr('x', 1).attr('y', 0)
       .attr('stroke','#777')
       .attr('stroke-width','0.3em')
-      .attr('fill','#f5f2e3')
+      // .attr('fill','#f5f2e3')
+      .attr('fill','#b0a79e')
       .attr('width','100%')
 
     var lineGenerator = d3.line();
@@ -48,7 +49,7 @@ class PlumBlossom extends Component {
     .attr('stroke-width', 20)
     .attr('fill', 'none')
 
-    // lights
+    // circles
     var data = []
     for (let i=0; i < 300; i++) { data.push(i)}
 
@@ -62,7 +63,7 @@ class PlumBlossom extends Component {
         .attr('cx', function(d) { return xScale(Math.random())/1.7 + svg_width/7 })
         .attr('fill', function(d) { return d3.interpolateBlues(d/1000) })
         .attr("opacity", function(d) { return Math.random() + 0.7 })
-        .attr('stroke', 'black')
+        // .attr('stroke', 'black')
         .attr('stroke-width', '1.5px')
 
     data = []
@@ -77,7 +78,7 @@ class PlumBlossom extends Component {
         .attr('cy', function(d) { return yScale(Math.random())/2 })
         .attr('cx', function(d) { return xScale(Math.random())/2 + svg_width/6 })
         .attr('fill', function(d) { return d3.interpolateReds(d/200) })
-        .attr('stroke', 'black')
+        // .attr('stroke', 'black')
         .attr('stroke-width', '1.5px')
   }
 
