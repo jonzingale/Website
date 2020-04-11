@@ -19,7 +19,6 @@ class BeanSoup extends Component {
       .attr('x', 1).attr('y', 0)
       .attr('stroke','#777')
       .attr('stroke-width','0.3em')
-      // .attr('fill','#f5f2e3')
       .attr('fill','#e1c4bd')
       .attr('width','100%')
 
