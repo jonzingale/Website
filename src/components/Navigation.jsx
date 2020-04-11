@@ -2,11 +2,9 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Navbar, Nav } from 'react-bootstrap';
 
-import TestTemplate from './pages/TestTemplate';
-import HaskellCoders from './pages/HaskellCoders';
-import SvgTemplate from './pages/SvgTemplate';
-
-import './css/main.css'
+import TestTemplate from './../pages/TestTemplate';
+import HaskellCoders from './../pages/HaskellCoders';
+import SvgTemplate from './../pages/SvgTemplate';
 
 class App extends Component {
 

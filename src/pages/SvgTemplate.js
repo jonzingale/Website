@@ -21,14 +21,13 @@ class SvgTemplate extends Component {
         </aside>
 
         <article>
-          <h2 className='title'></h2>
-            <BeanSoup />
-            <PlumBlossom />
-            <CottonWoods />
-            <Notebook />
+          <h2>svg notebook:</h2>
+          <BeanSoup />
+          <PlumBlossom />
+          <CottonWoods />
+          <Notebook />
         </article>
 
-        <aside className='sidebar-right'>.</aside>
       </div>
     )
   }
