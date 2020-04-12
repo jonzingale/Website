@@ -1,4 +1,4 @@
-.explorable .container {
+.explorable-container {
   display: grid;
 
   grid-template-areas: 

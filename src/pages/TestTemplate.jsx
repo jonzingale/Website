@@ -4,7 +4,7 @@ import './../css/main.css'
 class TestTemplate extends Component {
   render() {
     return(
-      <div className='container'>
+      <div className='theme-container'>
         <header>jonzingale@gmail.com</header>
 
         <aside className='sidebar-left'>

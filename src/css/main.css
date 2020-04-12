@@ -1,3 +1,6 @@
+@import 'nav.css';
+@import 'font.css';
+
 @import 'themes/main-theme.css';
 /*@import 'themes/raksahasa-theme.css';*/
 /*@import 'themes/yoshimi-theme.css';*/
@@ -10,19 +13,9 @@
 @import 'themes/woman-in-rain-theme.css';
 /*@import 'themes/coast-theme.css';*/
 
-@font-face {
-  font-family: "Moon Light";
-  src: url(./../fonts/moon/MoonLight.otf) format("opentype");
-  font-weight: normal;
-  font-style: normal;
-}
 
-@font-face {
-  font-family: "Oranienbaum";
-  src: url(./../fonts/oranienbaum/Oranienbaum.ttf) format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
+/*:local(.theme) {*/
+  /*color: red;*/
 
 /* NOTE: TO USE GRIDS FOLLOW RULES BELOW.*/
 /* https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids */
@@ -31,8 +24,8 @@
 /*- To leave a cell empty, use a . (period).*/
 /*- Areas must be rectangular — you can’t have an L-shaped area for example.*/
 /*- Areas can't be repeated in different locations.*/
-
-.container {
+/*:local(.themeContainer) {*/
+.theme-container {
   display: grid;
 
   grid-template-areas: 
@@ -40,7 +33,8 @@
       "sidebarLeft content sidebarRight"
       "footer footer footer";
 
-  grid-template-columns: 0.7fr 2.2fr 0.5fr;
+  /*grid-template-columns: 0.7fr 2.2fr 0.5fr;*/
+  grid-template-columns: 0.8fr 2.2fr 0.5fr;
 }
 
 header {
@@ -55,20 +49,9 @@ header {
   padding-right: 2em;
 }
 
-nav {
-  width: 50%;
-  position: fixed;
-  padding: 1.2em;
-  background-color: var(--global-color-nav-background);
-}
-
-.nav-link {
-  font-size: 1.5em;
-  color: var(--global-color-nav-text);
-  margin: 0.5em;
-}
-
-h1 {
+.main h1 { /* give h1 names going forward, this is used for sidebar-title */
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
   font-family: 'Oranienbaum';
   font-size: 2.3em;
   color: var(--global-color-h1);
@@ -96,6 +79,7 @@ code {
 }
 
 article {
+  padding-top: 1.3em;
   padding-left: 4em;
   grid-area: content;
   padding-bottom: 10em;
@@ -117,6 +101,8 @@ footer {
 }
 
 .title {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
   font-family: 'Moon Light';
   font-size: 3em;
   color: var(--global-color-title);
@@ -138,7 +124,8 @@ footer {
   font-family: helvetica;
 }
 
-.card {
+.card { /* give card names going forward */
+  border-style: none !important;
   background-color: var(--global-color-card-background);
   padding-top: 1em;
   padding-bottom: 0.5em;
@@ -164,3 +151,4 @@ footer {
 .sidebar-right {
   grid-area: sidebarRight;
 }
+/*};*/

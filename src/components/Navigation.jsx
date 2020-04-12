@@ -9,26 +9,17 @@ import Explorable from './../pages/Explorable.jsx';
 
 class Navigation extends Component {
 
-  state = {
-    isOpen: false
-  };
-
-  toggleCollapse = () => {
-    this.setState({ isOpen: !this.state.isOpen });
-  }
-
   render() {
-    console.log(this.state.isOpen)
     // <Nav.Link href='/lights-game'>Lights Game</Nav.Link>
     return (
       <div>
         <Router>
           <div>
-            <Navbar expanded={!this.state.isOpen} onClick={this.toggleCollapse} >
+            <Navbar className='navbar'>
               <Navbar.Collapse>
               <Nav>
-                
-                <NavDropdown title='dropdown' href='/haskell-coding-group'>
+                <NavDropdown title='HaskellCoders' href='/haskell-coding-group'>
+                  <NavDropdown.Item href="/haskell-coding-group">HaskellCoders</NavDropdown.Item>
                   <NavDropdown.Item href="#/action-1">Listable</NavDropdown.Item>
                   <NavDropdown.Item href="#/action-2">Sortable</NavDropdown.Item>
                   <NavDropdown.Item href="#/action-3">Vector</NavDropdown.Item>
@@ -38,10 +29,9 @@ class Navigation extends Component {
                   <NavDropdown.Item href="#/action-3">Havel-Hakimi</NavDropdown.Item>
                 </NavDropdown>
 
-                <Nav.Link href="/">Home</Nav.Link>
-                <Nav.Link href="/haskell-coding-group">HaskellCoders</Nav.Link>
-                <Nav.Link href="/explorable">Explorable</Nav.Link>
-                <Nav.Link href="/svg-template">SvgTemplate</Nav.Link>
+                <Nav.Link className="nav-link" href="/">Home</Nav.Link>
+                <Nav.Link className="nav-link" href="/explorable">Explorable</Nav.Link>
+                <Nav.Link className="nav-link" href="/svg-template">SvgTemplate</Nav.Link>
               </Nav>
               </Navbar.Collapse>
             </Navbar>

@@ -9,7 +9,7 @@ import './../css/main.css'
 class SvgTemplate extends Component {
   render() {
     return(
-      <div className='container'>
+      <div className='theme-container'>
         <header>{this.props.title}</header>
 
         <aside className='sidebar-left'>

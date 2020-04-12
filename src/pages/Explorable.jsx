@@ -8,7 +8,7 @@ class Explorable extends Component {
   render() {
     return(
       <div className='explorable'>
-        <div className='container'>
+        <div className='explorable-container'>
           <header>D3 projects</header>
           <article>
             <ExplorableMenu />

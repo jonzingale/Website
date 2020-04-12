@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import './../css/main.css'
+// import styles from './../css/main.css'
 
 class HaskellCoders extends Component {
   render() {
     const imgUrl = '/images/haskelltospreadsheet.png'
 
     return(
-      <div className='container'>
+      <div className='theme-container'>
         <header>{this.props.title}</header>
 
         <aside className='sidebar-left'>

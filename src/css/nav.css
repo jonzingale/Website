@@ -1,0 +1,17 @@
+.main nav {
+  position: fixed;
+  z-index: 1;
+  background-color: var(--global-color-nav-background);
+}
+
+.main .navbar {
+  padding: 0;
+  width: 70%;
+  /*padding-right: 10em;*/
+}
+
+.main .nav-link { /* again, local scoping would help */
+  font-size: 1.5em;
+  color: var(--global-color-nav-text) !important;
+  margin: 0.5em;
+}

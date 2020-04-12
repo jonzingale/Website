@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "Moon Light";
+  src: url(./../fonts/moon/MoonLight.otf) format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Oranienbaum";
+  src: url(./../fonts/oranienbaum/Oranienbaum.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
