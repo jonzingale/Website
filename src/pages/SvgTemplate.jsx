@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import CottonWoods from './../svg/CottonWoods.jsx'
+import CottonWoods from './../svg/CottonWood.jsx'
 import PlumBlossom from './../svg/PlumBlossom.jsx'
 import BeanSoup from './../svg/BeanSoup.jsx'
 import Notebook from './../svg/Notebook.jsx'

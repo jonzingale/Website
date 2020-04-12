@@ -33,6 +33,14 @@ class BeanSoup extends Component {
         })
       .style("filter", "url(#blur)");
 
+      // blur
+      var defs = svg.append("defs")
+      defs.append("defs")
+        .append("filter")
+        .attr("id", "blur")
+        .append("feGaussianBlur")
+        .attr("stdDeviation", 3)
+
     // opaque layer
     svg.append('rect')
       .attr('class', 'opaque-layer')
@@ -40,13 +48,6 @@ class BeanSoup extends Component {
       .attr('fill','#e1c4bd')
       .attr('width','100%')
       .attr('opacity', 0.5)
-
-    var defs = svg.append("defs")
-    defs.append("defs")
-      .append("filter")
-      .attr("id", "blur")
-      .append("feGaussianBlur")
-      .attr("stdDeviation", 3)
 
     function rando(lim) { return Math.floor(Math.random() * lim) }
 

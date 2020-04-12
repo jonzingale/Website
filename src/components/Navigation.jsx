@@ -7,9 +7,16 @@ import HaskellCoders from './../pages/HaskellCoders.jsx';
 import SvgTemplate from './../pages/SvgTemplate.jsx';
 
 class Navigation extends Component {
+// https://mdbootstrap.com/docs/react/navigation/navbar/
+state = {
+  isOpen: false
+};
+
+toggleCollapse = () => {
+  this.setState({ isOpen: !this.state.isOpen });
+}
 
   render() {
-
   // not yet any good.
   function dropdown() {
     return(

@@ -77,8 +77,16 @@ class PlumBlossom extends Component {
         .attr('cx', function(d) { return xScale(Math.random())/1.3 + svg_width/7 })
         .attr('fill', function(d) { return d3.interpolateBlues(d/1200) })
         .attr("opacity", function(d) { return Math.random() + 0.7 })
-        // .attr('stroke', 'black')
         .attr('stroke-width', '1.5px')
+        .style("filter", d => d < 200 ? "url(#blur)" : ""); // blur
+
+    // blur
+    var defs = svg.append("defs")
+    defs.append("defs")
+      .append("filter")
+      .attr("id", "blur")
+      .append("feGaussianBlur")
+      .attr("stdDeviation", 3)
 
     data = []
     for (let i=0; i < 150; i++) { data.push(i)}
