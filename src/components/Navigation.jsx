@@ -8,43 +8,42 @@ import SvgTemplate from './../pages/SvgTemplate.jsx';
 import Explorable from './../pages/Explorable.jsx';
 
 class Navigation extends Component {
-// https://mdbootstrap.com/docs/react/navigation/navbar/
-state = {
-  isOpen: false
-};
 
-toggleCollapse = () => {
-  this.setState({ isOpen: !this.state.isOpen });
-}
+  state = {
+    isOpen: false
+  };
 
-  render() {
-  // not yet any good.
-  function dropdown() {
-    return(
-      <NavDropdown title='HaskellCoders' href='/haskell-coding-group' id="basic-nav-dropdown">
-        <NavDropdown.Item href="#/action-1">Listable</NavDropdown.Item>
-        <NavDropdown.Item href="#/action-2">Sortable</NavDropdown.Item>
-        <NavDropdown.Item href="#/action-3">Vector</NavDropdown.Item>
-        <NavDropdown.Item href="#/action-3">Abelian Zippers</NavDropdown.Item>
-        <NavDropdown.Item href="#/action-3">HTF</NavDropdown.Item>
-        <NavDropdown.Item href="#/action-3">Umeboshi</NavDropdown.Item>
-        <NavDropdown.Item href="#/action-3">Havel-Hakimi</NavDropdown.Item>
-      </NavDropdown>
-    )
+  toggleCollapse = () => {
+    this.setState({ isOpen: !this.state.isOpen });
   }
 
+  render() {
+    console.log(this.state.isOpen)
     // <Nav.Link href='/lights-game'>Lights Game</Nav.Link>
     return (
       <div>
         <Router>
           <div>
-            <Navbar>
+            <Navbar expanded={!this.state.isOpen} onClick={this.toggleCollapse} >
+              <Navbar.Collapse>
               <Nav>
+                
+                <NavDropdown title='dropdown' href='/haskell-coding-group'>
+                  <NavDropdown.Item href="#/action-1">Listable</NavDropdown.Item>
+                  <NavDropdown.Item href="#/action-2">Sortable</NavDropdown.Item>
+                  <NavDropdown.Item href="#/action-3">Vector</NavDropdown.Item>
+                  <NavDropdown.Item href="#/action-3">Abelian Zippers</NavDropdown.Item>
+                  <NavDropdown.Item href="#/action-3">HTF</NavDropdown.Item>
+                  <NavDropdown.Item href="#/action-3">Umeboshi</NavDropdown.Item>
+                  <NavDropdown.Item href="#/action-3">Havel-Hakimi</NavDropdown.Item>
+                </NavDropdown>
+
                 <Nav.Link href="/">Home</Nav.Link>
                 <Nav.Link href="/haskell-coding-group">HaskellCoders</Nav.Link>
                 <Nav.Link href="/explorable">Explorable</Nav.Link>
                 <Nav.Link href="/svg-template">SvgTemplate</Nav.Link>
               </Nav>
+              </Navbar.Collapse>
             </Navbar>
 
             {/* A <Switch> looks through its children <Route>s and
