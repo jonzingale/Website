@@ -33,13 +33,13 @@ class BeanSoup extends Component {
         })
       .style("filter", "url(#blur)");
 
-      // blur
-      var defs = svg.append("defs")
-      defs.append("defs")
-        .append("filter")
-        .attr("id", "blur")
-        .append("feGaussianBlur")
-        .attr("stdDeviation", 3)
+    // blur
+    var defs = svg.append("defs")
+    defs.append("defs")
+      .append("filter")
+      .attr("id", "blur")
+      .append("feGaussianBlur")
+      .attr("stdDeviation", 3)
 
     // opaque layer
     svg.append('rect')

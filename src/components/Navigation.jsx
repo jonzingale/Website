@@ -5,6 +5,7 @@ import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import TestTemplate from './../pages/TestTemplate.jsx';
 import HaskellCoders from './../pages/HaskellCoders.jsx';
 import SvgTemplate from './../pages/SvgTemplate.jsx';
+import Explorable from './../pages/Explorable.jsx';
 
 class Navigation extends Component {
 // https://mdbootstrap.com/docs/react/navigation/navbar/
@@ -41,6 +42,7 @@ toggleCollapse = () => {
               <Nav>
                 <Nav.Link href="/">Home</Nav.Link>
                 <Nav.Link href="/haskell-coding-group">HaskellCoders</Nav.Link>
+                <Nav.Link href="/explorable">Explorable</Nav.Link>
                 <Nav.Link href="/svg-template">SvgTemplate</Nav.Link>
               </Nav>
             </Navbar>
@@ -54,8 +56,8 @@ toggleCollapse = () => {
               <Route path="/svg-template">
                 <SvgTemplate title='svg notebook'/>
               </Route>
-              <Route path="/lights-game">
-                <SvgTemplate title='Wow Lights Game'/> {/* TODO: Migrate*/}
+              <Route path="/explorable">
+                <Explorable title='Explorable'/> {/* TODO: Migrate*/}
               </Route>
               <Route path="/" title='jonzingale@gmail.com'>
                 <TestTemplate />
