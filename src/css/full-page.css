@@ -1,4 +1,4 @@
-.container {
+.explorable .container {
   display: grid;
 
   grid-template-areas: 
@@ -10,27 +10,30 @@
   background-color: #f4f2e9;
 }
 
-article {
+.explorable article {
   padding-top: 3em;
   padding-left: 4em;
   grid-area: content;
   padding-bottom: 0em;
   margin-bottom: 10em;
-  font-size: 1.28em;
 }
 
-header {
+.explorable rect {
+  fill: #f4f2e9;
+  stroke-width: 0;
+}
+
+.explorable header {
  background-color: unset;
 }
 
-.sidebar-right {
+.explorable .sidebar-right {
+  margin-right: 5%;
   grid-area: sidebarRight;
 }
 
-.sidebar-content {
-  /*width: 70%;*/
+.explorable .sidebar-content {
+  background-color: unset;
   border-style: none;
   padding-top: 10%;
-  font-family: helvetica;
-  background-color: unset;
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import * as d3 from 'd3'
 
+// FullPage version of PlumBlossom
 class PlumBlossom extends Component {
 
   componentDidMount() {
@@ -9,7 +10,7 @@ class PlumBlossom extends Component {
     var svg_height = svg.style('height').replace('px','')
 
     var xScale = d3.scaleLinear()
-      .domain([0, 1]).range([0, svg_width])
+      .domain([0, 1]).range([100, 750])
 
     var yScale = d3.scaleLinear()
       .domain([0, 1]).range([0, svg_height])
@@ -17,10 +18,6 @@ class PlumBlossom extends Component {
     // background box
     svg.append('rect')
       .attr('class', 'background-box')
-      .attr('x', 1).attr('y', 0)
-      .attr('stroke','#777')
-      .attr('stroke-width', this.props.border ? '0.3em' : '0')
-      .attr('fill', this.props.paperColor) // cream paper
       .attr('width','100%')
 
     var lineGenerator = d3.line().curve(d3.curveBasis)
@@ -71,12 +68,11 @@ class PlumBlossom extends Component {
       .attr("class", "blue-circles")
       .selectAll("circle")
       .data(data).enter().append("circle")
-        .attr('id', function(d, i) { return i })
-        .attr("r", function(d) { return Math.random()*30 })
-        .attr('cy', function(d) { return yScale(Math.random())/2.2 + 40})
-        .attr('cx', function(d) { return xScale(Math.random())/1.3 + svg_width/7 })
-        .attr('fill', function(d) { return d3.interpolateBlues(d/1200) })
-        .attr("opacity", function(d) { return Math.random() + 0.7 })
+        .attr("r", d => Math.random()*30 )
+        .attr('cy', d => yScale(Math.random())/2.2 + 40)
+        .attr('cx', d => xScale(Math.random()))
+        .attr('fill', d => d3.interpolateBlues(d/1200) )
+        .attr("opacity", d => Math.random() + 0.7 )
         .attr('stroke-width', '1.5px')
         .style("filter", d => d < 200 ? "url(#blur)" : ""); // blur
 
@@ -95,11 +91,10 @@ class PlumBlossom extends Component {
       .attr("class", "pink-circles")
       .selectAll("circle")
       .data(data).enter().append("circle")
-        .attr('id', function(d, i) { return i })
         .attr("r", 3)
-        .attr('cy', function(d) { return yScale(Math.random())/2.2 + 40})
-        .attr('cx', function(d) { return xScale(Math.random())/1.4 + svg_width/6 })
-        .attr('fill', function(d) { return d3.interpolateReds(d/200) })
+        .attr('cy', d => yScale(Math.random())/2.2 + 40)
+        .attr('cx', d => xScale(Math.random())*0.9 + 60)
+        .attr('fill', d => d3.interpolateReds(d/200) )
         .attr('stroke-width', '1.5px')
   }
 
