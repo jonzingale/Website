@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import * as d3 from 'd3'
 
-class TreeTemplate1 extends Component {
+class CottonWood extends Component {
 
   componentDidMount() {
     var svg = d3.selectAll('#tree1')
@@ -107,4 +107,4 @@ class TreeTemplate1 extends Component {
   }
 }
 
-export default TreeTemplate1;
+export default CottonWood;
