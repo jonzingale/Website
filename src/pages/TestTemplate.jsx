@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import './../css/main.css'
 
 class TestTemplate extends Component {
   render() {

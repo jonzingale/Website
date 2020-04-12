@@ -13,10 +13,6 @@
 @import 'themes/woman-in-rain-theme.css';
 /*@import 'themes/coast-theme.css';*/
 
-
-/*:local(.theme) {*/
-  /*color: red;*/
-
 /* NOTE: TO USE GRIDS FOLLOW RULES BELOW.*/
 /* https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids */
 /*- You need to have every cell of the grid filled.*/
@@ -24,7 +20,7 @@
 /*- To leave a cell empty, use a . (period).*/
 /*- Areas must be rectangular — you can’t have an L-shaped area for example.*/
 /*- Areas can't be repeated in different locations.*/
-/*:local(.themeContainer) {*/
+
 .theme-container {
   display: grid;
 
@@ -33,7 +29,6 @@
       "sidebarLeft content sidebarRight"
       "footer footer footer";
 
-  /*grid-template-columns: 0.7fr 2.2fr 0.5fr;*/
   grid-template-columns: 0.8fr 2.2fr 0.5fr;
 }
 
@@ -151,4 +146,3 @@ footer {
 .sidebar-right {
   grid-area: sidebarRight;
 }
-/*};*/

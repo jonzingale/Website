@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Navigation from './components/Navigation.jsx';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Would a css loader to help??
+import 'bootstrap/dist/css/bootstrap.min.css'; // Could a css loader help?
 import './css/main.css'
 
 class App extends Component {

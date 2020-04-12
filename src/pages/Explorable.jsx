@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import PlumBlossom from './../svg/PlumBlossomFull.jsx'
 import ExplorableMenu from './../js/ExplorableMenu.jsx'
-import './../css/main.css'
 import './../css/full-page.css'
 
 class Explorable extends Component {

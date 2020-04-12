@@ -4,8 +4,6 @@ import PlumBlossom from './../svg/PlumBlossom.jsx'
 import BeanSoup from './../svg/BeanSoup.jsx'
 import Notebook from './../svg/Notebook.jsx'
 
-import './../css/main.css'
-
 class SvgTemplate extends Component {
   render() {
     return(
