@@ -41,7 +41,7 @@ class ExplorableMenu extends Component {
         .selectAll("circle").data(data)
         .enter().append("circle")
           .attr('id', function(d) { return d.id })
-          .attr("cx", 17).attr("r", 16)
+          .attr("cx", 18).attr("r", 18)
           .attr("cy", function(d, i) { return i*yHeight + 30 })
           .attr('fill', function(d, i) { return modelColors[i] })
 
