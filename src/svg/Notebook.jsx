@@ -53,7 +53,7 @@ class NoteBook extends Component {
 
   render(){
     return(
-      <div className='card'>
+      <div className='theme-card'>
         <svg id='notebook' width='100%' height='700px'></svg>
       </div>
     )

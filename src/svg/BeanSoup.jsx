@@ -71,7 +71,7 @@ class BeanSoup extends Component {
 
   render(){
     return(
-      <div className='card'>
+      <div className='theme-card'>
         <svg id='bean-soup' width='100%' height='400px'></svg>
       </div>
     )

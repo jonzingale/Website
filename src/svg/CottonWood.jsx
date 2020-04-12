@@ -100,7 +100,7 @@ class CottonWood extends Component {
 
   render(){
     return(
-      <div className='card'>
+      <div className='theme-card'>
         <svg id='tree1' width='100%' height='400px'></svg>
       </div>
     )
