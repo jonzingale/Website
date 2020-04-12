@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PlumBlossom from './../svg/PlumBlossomFull.jsx'
 import ExplorableMenu from './../js/ExplorableMenu.jsx'
 import './../css/main.css'
-import './../css/full-page.css' // WHY DOES THIS FUCK WITH EVERYTHING???
+// import './../css/full-page.css' // WHY DOES THIS FUCK WITH EVERYTHING???
 
 class Explorable extends Component {
   render() {
