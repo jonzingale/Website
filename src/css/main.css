@@ -20,7 +20,6 @@
 /*- To leave a cell empty, use a . (period).*/
 /*- Areas must be rectangular — you can’t have an L-shaped area for example.*/
 /*- Areas can't be repeated in different locations.*/
-
 .theme-container {
   display: grid;
 
@@ -119,8 +118,7 @@ footer {
   font-family: helvetica;
 }
 
-.card { /* give card names going forward */
-  border-style: none !important;
+.theme-card { /* give card names going forward */
   background-color: var(--global-color-card-background);
   padding-top: 1em;
   padding-bottom: 0.5em;

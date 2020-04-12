@@ -10,12 +10,11 @@ import Explorable from './../pages/Explorable.jsx';
 class Navigation extends Component {
 
   render() {
-    // <Nav.Link href='/lights-game'>Lights Game</Nav.Link>
     return (
       <div>
         <Router>
           <div>
-            <Navbar className='navbar'>
+            <Navbar>
               <Navbar.Collapse>
               <Nav>
                 <NavDropdown title='HaskellCoders' href='/haskell-coding-group'>
@@ -32,6 +31,7 @@ class Navigation extends Component {
                 <Nav.Link className="nav-link" href="/">Home</Nav.Link>
                 <Nav.Link className="nav-link" href="/explorable">Explorable</Nav.Link>
                 <Nav.Link className="nav-link" href="/svg-template">SvgTemplate</Nav.Link>
+                <Nav.Link href='/lights-game'>Lights Game</Nav.Link>
               </Nav>
               </Navbar.Collapse>
             </Navbar>

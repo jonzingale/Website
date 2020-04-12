@@ -9,7 +9,7 @@ class TestTemplate extends Component {
         <aside className='sidebar-left'>
           <h1>This is the Margin Header.</h1>
 
-          <div className='card'>
+          <div className='theme-card'>
             This a Sidebar for putting who knows what?
           </div>
         </aside>
@@ -23,7 +23,7 @@ class TestTemplate extends Component {
             learn to apply Haskell. Included here are some of my notes.
           </div>
 
-          <div className='card'>
+          <div className='theme-card'>
             <h2><a href="./haskell_on_jupyter/HTF.html">Haskell Test Framework</a></h2>
             Having a reliable test framework is an amazing thing. Here is a small
             collection of notes describing some of the features and organizational
@@ -31,7 +31,7 @@ class TestTemplate extends Component {
             examples are designed for my recent work developing a ray tracing algorithm.
           </div>
 
-          <div className='card'>
+          <div className='theme-card'>
             <h2><a href="./haskell_on_jupyter/HTF.html">Haskell Test Framework</a></h2>
             Having a reliable test framework is an amazing thing. Here is a small
             collection of notes describing some of the features and organizational
@@ -39,7 +39,7 @@ class TestTemplate extends Component {
             examples are designed for my recent work developing a ray tracing algorithm.
           </div>
 
-          <div className='card'>
+          <div className='theme-card'>
             <h2><a href="./haskell_on_jupyter/HTF.html">Haskell Test Framework</a></h2>
             Having a reliable test framework is an amazing thing. Here is a small
             collection of notes describing some of the features and organizational

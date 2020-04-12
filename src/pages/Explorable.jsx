@@ -8,7 +8,7 @@ class Explorable extends Component {
     return(
       <div className='explorable'>
         <div className='explorable-container'>
-          <header>D3 projects</header>
+          <header>Explorations in D3</header>
           <article>
             <ExplorableMenu />
           </article>

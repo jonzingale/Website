@@ -29,7 +29,7 @@ class HaskellCoders extends Component {
               opportunity to actually learn to apply Haskell. Included here are
               some of my notes.
             </div>
-            <div className='card'>
+            <div className='theme-card'>
               <h2><a href="./haskell_on_jupyter/listable.html">Listable</a></h2>
               Here we write some methods for treating Integers as lists in the sense that
               we can define notions of <code>take, drop, (:), (++), and unit </code>
@@ -39,7 +39,7 @@ class HaskellCoders extends Component {
               a class <a href="./haskell_on_jupyter/listable.html"> Listable </a>
               handling both.
             </div>
-            <div className='card'>
+            <div className='theme-card'>
               <h2><a href="./haskell_on_jupyter/sortable.html">Sortable</a></h2>
               Now that there is a Listable class, we extend Listable things to be Sortable
               things. Put another way, given <code>(Ord a, Listable a) => a</code> we
@@ -47,7 +47,7 @@ class HaskellCoders extends Component {
               shuffled via <code>shuffle</code>. The sort is a quick-sort and the shuffle
               is a key-shuffle.
             </div>
-            <div className='card'>
+            <div className='theme-card'>
               <h2><a href="./haskell_on_jupyter/vector.html">Vector</a></h2>
               <a href="./haskell_on_jupyter/vector.html">Vector</a> is a module designed to
               facilitate mathematical vector operations in the Hermitian style. For
@@ -55,7 +55,7 @@ class HaskellCoders extends Component {
               fields to be arbitrary. Complex and Double serve as example fields
               throughout.
             </div>
-            <div className='card'>
+            <div className='theme-card'>
               <h2><a href="./haskell_on_jupyter/abelian_actions.html">Abelian Actions on a Zipper</a></h2>
               The goal here is to write an <code>Action</code> class which depends on an
               <code>Abelian</code> data type and acts on a <code>Zipper</code> type.
@@ -63,14 +63,14 @@ class HaskellCoders extends Component {
               are then given in the instance declaration for
               <code>Action (Zipper v)</code>.
             </div>
-            <div className='card'>
+            <div className='theme-card'>
               <h2><a href="./haskell_on_jupyter/HTF.html">Haskell Test Framework</a></h2>
               Having a reliable test framework is an amazing thing. Here is a small
               collection of notes describing some of the features and organizational
               structure of the <code>Haskell Test Framework</code>​ (HTF). Most of the
               examples are designed for my recent work developing a ray tracing algorithm.
             </div>
-            <div className='card'>
+            <div className='theme-card'>
               <h2><a href="./haskell_on_jupyter/umeboshi.html">Umeboshi</a></h2>
               <a href="./haskell_on_jupyter/umeboshi.html">Umeboshi</a> is a drum machine
               written in Haskell and built from a Roland 808 sound bank. The drum machine
@@ -78,7 +78,7 @@ class HaskellCoders extends Component {
               signatures. It relies heavily <code>Unboxed Vector</code> types and
               the <code>Data.WAVE</code> library.
             </div>
-            <div className='card'>
+            <div className='theme-card'>
               <h2><a href="./haskell_on_jupyter/havelHakimi.html">Havel Hakimi Graphs</a></h2>
               The Swiss-McMahon tournament can be seen as a special case of the
               Erdős–Gallai theorem and as such, the Havel-Hakimi algorithm can be used to
