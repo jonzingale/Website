@@ -1,11 +1,11 @@
 .main nav {
   position: fixed;
-  z-index: 1;
   background-color: var(--global-color-nav-background);
 }
 
 .navbar {
   padding: 0;
+  padding-left: 2%;
   padding-right: 7%;
 }
 
@@ -15,4 +15,7 @@
   margin-top: 0.5em;
   margin-bottom: 0.5em;
   padding-right: 1%;
+}
+.dropdown-toggle:after {
+  display: none;
 }

@@ -9,6 +9,23 @@ import Explorable from './../pages/Explorable.jsx';
 
 class Navigation extends Component {
 
+  constructor(props) {
+    super(props)
+    this.state = { isOpen: false }
+  }
+
+  handleOpen = () => {
+    this.setState({ isOpen: true })
+  }
+
+  handleClose = () => {
+     this.setState({ isOpen: false })
+  }
+
+  handleClick = (url) => {
+    window.location = url
+  }
+
   render() {
     return (
       <div>
@@ -17,8 +34,15 @@ class Navigation extends Component {
             <Navbar>
               <Navbar.Collapse>
               <Nav>
-                <NavDropdown title='HaskellCoders' href='/haskell-coding-group'>
-                  <NavDropdown.Item href="/haskell-coding-group">HaskellCoders</NavDropdown.Item>
+                <Nav.Link className="nav-link" href="/">Home</Nav.Link>
+
+                <NavDropdown title='HaskellCoders!'
+                  onClick = {() => this.handleClick('/haskell-coding-group')}
+                  onMouseEnter = { this.handleOpen }
+                  onMouseLeave = { this.handleClose }
+                  show={ this.state.isOpen }
+                  role="navigation"
+                >
                   <NavDropdown.Item href="#/action-1">Listable</NavDropdown.Item>
                   <NavDropdown.Item href="#/action-2">Sortable</NavDropdown.Item>
                   <NavDropdown.Item href="#/action-3">Vector</NavDropdown.Item>
@@ -28,7 +52,6 @@ class Navigation extends Component {
                   <NavDropdown.Item href="#/action-3">Havel-Hakimi</NavDropdown.Item>
                 </NavDropdown>
 
-                <Nav.Link className="nav-link" href="/">Home</Nav.Link>
                 <Nav.Link className="nav-link" href="/explorable">Explorable</Nav.Link>
                 <Nav.Link className="nav-link" href="/svg-template">SvgTemplate</Nav.Link>
                 <Nav.Link href='/lights-game'>Lights Game</Nav.Link>
