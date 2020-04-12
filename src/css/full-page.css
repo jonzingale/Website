@@ -1,0 +1,36 @@
+.container {
+  display: grid;
+
+  grid-template-areas: 
+      "header header"
+      "content sidebarRight"
+      "footer footer";
+
+  grid-template-columns: 1fr 2fr;
+  background-color: #f4f2e9;
+}
+
+article {
+  padding-top: 3em;
+  padding-left: 4em;
+  grid-area: content;
+  padding-bottom: 0em;
+  margin-bottom: 10em;
+  font-size: 1.28em;
+}
+
+header {
+ background-color: unset;
+}
+
+.sidebar-right {
+  grid-area: sidebarRight;
+}
+
+.sidebar-content {
+  /*width: 70%;*/
+  border-style: none;
+  padding-top: 10%;
+  font-family: helvetica;
+  background-color: unset;
+}
