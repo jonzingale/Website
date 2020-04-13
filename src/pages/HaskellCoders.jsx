@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 class HaskellCoders extends Component {
   render() {
     const imgUrl = '/images/haskelltospreadsheet.png'
-    const urlStub = './../pages_unitegrated/haskell_on_jupyter/'
 
     const jupyterStub1 = 'https://github.com/jonzingale/Haskell/blob/master/HaskellStudy/Lists/Documentation/'
     const jupyterStub2 = 'https://github.com/jonzingale/Haskell/blob/master/HaskellStudy/LinearAlgebra/ComplexVector/Documentation/'
