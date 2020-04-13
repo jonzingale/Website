@@ -29,6 +29,8 @@ class Navigation extends Component {
   render() {
     const jupyterStub1 = 'https://github.com/jonzingale/Haskell/blob/master/HaskellStudy/Lists/Documentation/'
     const jupyterStub2 = 'https://github.com/jonzingale/Haskell/blob/master/HaskellStudy/LinearAlgebra/ComplexVector/Documentation/'
+    const jupyterStub3 = 'https://github.com/jonzingale/Haskell/blob/master/Attenuations/dev/Documentation/'
+    const jupyterStub4 = ''
     return (
       <div>
         <Router>
@@ -57,9 +59,15 @@ class Navigation extends Component {
                   <NavDropdown.Item href={jupyterStub1 + 'AbelianActions.ipynb'}>
                     Abelian Zippers
                   </NavDropdown.Item>
-                  <NavDropdown.Item href="#/action-3">HTF</NavDropdown.Item>
-                  <NavDropdown.Item href="#/action-3">Umeboshi</NavDropdown.Item>
-                  <NavDropdown.Item href="#/action-3">Havel-Hakimi</NavDropdown.Item>
+                  <NavDropdown.Item href={jupyterStub3 + 'HTF.ipynb'}>
+                    HTF
+                  </NavDropdown.Item>
+                  <NavDropdown.Item href={jupyterStub4 + 'HTF.ipynb'}>
+                    Umeboshi
+                  </NavDropdown.Item>
+                  <NavDropdown.Item href={jupyterStub4 + 'HTF.ipynb'}>
+                    Havel-Hakimi
+                  </NavDropdown.Item>
                 </NavDropdown>
 
                 <Nav.Link className="nav-link" href="/explorable">D3Journal</Nav.Link>
