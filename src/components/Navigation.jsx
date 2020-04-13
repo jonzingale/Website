@@ -8,6 +8,7 @@ import SvgTemplate from './../pages/SvgTemplate.jsx';
 import Explorable from './../pages/Explorable.jsx';
 
 import Umeboshi from './../pages/haskell_on_jupyter/Umeboshi.jsx';
+import HavelHakimi from './../pages/haskell_on_jupyter/HavelHakimi.jsx';
 
 class Navigation extends Component {
 
@@ -42,7 +43,7 @@ class Navigation extends Component {
               <Nav>
                 <Nav.Link className="nav-link" href="/">Home</Nav.Link>
 
-                <NavDropdown title='HaskellCoders!'
+                <NavDropdown title='HaskellSantaFe'
                   onClick={() => this.handleClick('/haskell-coding-group')}
                   onMouseEnter={ this.handleOpen }
                   onMouseLeave={ this.handleClose }
@@ -83,6 +84,9 @@ class Navigation extends Component {
             {/* A <Switch> looks through its children <Route>s and
                 renders the first one that matches the current URL. */}
             <Switch>
+              <Route path="/haskell_on_jupyter/havel-hakimi">
+                <HavelHakimi title='Havel-Hakimi'/>
+              </Route>
               <Route path="/haskell_on_jupyter/umeboshi">
                 <Umeboshi title='Umeboshi'/>
               </Route>
