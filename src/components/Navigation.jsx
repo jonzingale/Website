@@ -27,6 +27,8 @@ class Navigation extends Component {
   }
 
   render() {
+    const jupyterStub1 = 'https://github.com/jonzingale/Haskell/blob/master/HaskellStudy/Lists/Documentation/'
+    const jupyterStub2 = 'https://github.com/jonzingale/Haskell/blob/master/HaskellStudy/LinearAlgebra/ComplexVector/Documentation/'
     return (
       <div>
         <Router>
@@ -37,23 +39,32 @@ class Navigation extends Component {
                 <Nav.Link className="nav-link" href="/">Home</Nav.Link>
 
                 <NavDropdown title='HaskellCoders!'
-                  onClick = {() => this.handleClick('/haskell-coding-group')}
-                  onMouseEnter = { this.handleOpen }
-                  onMouseLeave = { this.handleClose }
+                  onClick={() => this.handleClick('/haskell-coding-group')}
+                  onMouseEnter={ this.handleOpen }
+                  onMouseLeave={ this.handleClose }
                   show={ this.state.isOpen }
                   role="navigation"
                 >
-                  <NavDropdown.Item href="#/action-1">Listable</NavDropdown.Item>
-                  <NavDropdown.Item href="#/action-2">Sortable</NavDropdown.Item>
-                  <NavDropdown.Item href="#/action-3">Vector</NavDropdown.Item>
-                  <NavDropdown.Item href="#/action-3">Abelian Zippers</NavDropdown.Item>
+                  <NavDropdown.Item href={jupyterStub1 + 'Listables.ipynb'}>
+                    Listable
+                  </NavDropdown.Item>
+                  <NavDropdown.Item href={jupyterStub1 + 'Sortable.ipynb'}>
+                    Sortable
+                  </NavDropdown.Item>
+                  <NavDropdown.Item href={jupyterStub2 + 'Vector.ipynb'}>
+                    Vector
+                  </NavDropdown.Item>
+                  <NavDropdown.Item href={jupyterStub1 + 'AbelianActions.ipynb'}>
+                    Abelian Zippers
+                  </NavDropdown.Item>
                   <NavDropdown.Item href="#/action-3">HTF</NavDropdown.Item>
                   <NavDropdown.Item href="#/action-3">Umeboshi</NavDropdown.Item>
                   <NavDropdown.Item href="#/action-3">Havel-Hakimi</NavDropdown.Item>
                 </NavDropdown>
 
-                <Nav.Link className="nav-link" href="/explorable">Explorable</Nav.Link>
+                <Nav.Link className="nav-link" href="/explorable">D3Journal</Nav.Link>
                 <Nav.Link className="nav-link" href="/svg-template">SvgTemplate</Nav.Link>
+                <Nav.Link href='https://github.com/jonzingale'>GitHub</Nav.Link>
                 <Nav.Link href='/lights-game'>Lights Game</Nav.Link>
               </Nav>
               </Navbar.Collapse>
