@@ -7,6 +7,8 @@ import HaskellCoders from './../pages/HaskellCoders.jsx';
 import SvgTemplate from './../pages/SvgTemplate.jsx';
 import Explorable from './../pages/Explorable.jsx';
 
+import Umeboshi from './../pages/haskell_on_jupyter/Umeboshi.jsx';
+
 class Navigation extends Component {
 
   constructor(props) {
@@ -30,7 +32,7 @@ class Navigation extends Component {
     const jupyterStub1 = 'https://github.com/jonzingale/Haskell/blob/master/HaskellStudy/Lists/Documentation/'
     const jupyterStub2 = 'https://github.com/jonzingale/Haskell/blob/master/HaskellStudy/LinearAlgebra/ComplexVector/Documentation/'
     const jupyterStub3 = 'https://github.com/jonzingale/Haskell/blob/master/Attenuations/dev/Documentation/'
-    const jupyterStub4 = ''
+
     return (
       <div>
         <Router>
@@ -62,10 +64,10 @@ class Navigation extends Component {
                   <NavDropdown.Item href={jupyterStub3 + 'HTF.ipynb'}>
                     HTF
                   </NavDropdown.Item>
-                  <NavDropdown.Item href={jupyterStub4 + 'HTF.ipynb'}>
+                  <NavDropdown.Item href='/haskell_on_jupyter/umeboshi'>
                     Umeboshi
                   </NavDropdown.Item>
-                  <NavDropdown.Item href={jupyterStub4 + 'HTF.ipynb'}>
+                  <NavDropdown.Item href='/haskell_on_jupyter/havel-hakimi'>
                     Havel-Hakimi
                   </NavDropdown.Item>
                 </NavDropdown>
@@ -81,6 +83,9 @@ class Navigation extends Component {
             {/* A <Switch> looks through its children <Route>s and
                 renders the first one that matches the current URL. */}
             <Switch>
+              <Route path="/haskell_on_jupyter/umeboshi">
+                <Umeboshi title='Umeboshi'/>
+              </Route>
               <Route path="/haskell-coding-group">
                 <HaskellCoders title='Haskell on Jupyter'/>
               </Route>
