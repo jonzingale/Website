@@ -69,7 +69,7 @@ a {
 }
 
 code {
-  color: var(--global-color-code);
+  color: var(--global-color-code) !important;
 }
 
 article {
@@ -133,6 +133,7 @@ footer {
   background-color: var(--global-color-sidebar-content-background);
   color: var(--global-color-sidebar-text);
   padding: 1em;
+  font-size: 1.2em;
 }
 
 .sidebar-left {

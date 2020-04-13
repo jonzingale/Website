@@ -21,13 +21,14 @@ class Umeboshi extends Component {
         <article>
           <h2 className='title'>{this.props.title}</h2>
           <img class="header-img" alt="umeboshi" src={imgUrl} width='400px'/>
-          <div className='introduction'>Umeboshi</div>
-          <div className='theme-card'>
+          <div className='introduction'>
             Umeboshi is a drum machine written in Haskell and built from a
             Roland 808 sound bank. The drum machine is designed to facilitate
             poly-rhythmic percussion in non-standard time signatures. It relies
-            heavily on Unboxed Vector types and the Data.WAVE library.<p/>
+            heavily on Unboxed Vector types and the Data.WAVE library.
+          </div>
 
+          <div className='theme-card'>
             By design, most drum machines facilitate writing drum patterns in
             common 3/4 and 4/4 time signatures and render the ability to have
             more unusual rhythms such as an even pentuplet over three quarter
@@ -38,7 +39,7 @@ class Umeboshi extends Component {
             Methods such as buildMeasure allow users to write a pentuplet over
             a three quarter note measure as easily as:<p/>
 
-            <code>buildMeasure 122 (Time 3 4) [("xxxxx", conga)]</code>
+            <code>buildMeasure 122 (Time 3 4) [("xxxxx", conga)]</code><p/>
 
             By passing a length five string of either <code>'.'</code> or
             <code>'x'</code> and instrument type <code>conga</code>, umeboshi
@@ -52,10 +53,10 @@ class Umeboshi extends Component {
             otherwise maracas on every other of the underlying quarter notes:<p/>
 
             <pre><code>
-            layeredExample = do
-              [hiTom, maracas, snare] arrow roland808
-              let ensemble1 = [("xxx", hiTom),("xx", snare),("x.x.x", maracas)]
-              let measure = buildMeasure 122 (Time 5 4) ensemble1
+            layeredExample = do<br></br>
+              [hiTom, maracas, snare] &lt;- roland808<br></br>
+              let ensemble1 = [("xxx", hiTom),("xx", snare),("x.x.x", maracas)]<br></br>
+              let measure = buildMeasure 122 (Time 5 4) ensemble1<p/>
 
               makeWavFile measure
             </code></pre>
@@ -65,7 +66,7 @@ class Umeboshi extends Component {
           </div>
         </article>
 
-        <aside className='sidebar-right'>this</aside>
+        <aside className='sidebar-right'>.</aside>
       </div>
     )
   }
