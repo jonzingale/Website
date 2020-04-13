@@ -1,6 +1,7 @@
 .main nav {
   position: fixed;
   background-color: var(--global-color-nav-background);
+  padding: 0;
 }
 
 .navbar {
