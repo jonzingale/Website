@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import ReactMarkdown from 'react-markdown'
 import MathJax from 'react-mathjax'
 import './../../css/main.css'
-import '~/css/main.css'
 
 import { code1, code2, code3 } from './../../js/havelHakimiCode.js'
 import CottonWood from './../../svg/CottonWood.jsx'
