@@ -20,7 +20,6 @@ class Umeboshi extends Component {
 
         <article>
           <h2 className='title'>{this.props.title}</h2>
-          <img class="header-img" alt="umeboshi" src={imgUrl} width='400px'/>
           <div className='introduction'>
             Umeboshi is a drum machine written in Haskell and built from a
             Roland 808 sound bank. The drum machine is designed to facilitate

@@ -24,7 +24,6 @@ class HaskellCoders extends Component {
 
         <article>
           <h2 className='title'>{this.props.title}</h2>
-          <img className="header-img" alt='xkcd' src={imgUrl} />
           <div className='introduction'>
             Recently, I have found myself leading a Haskell programming group
             in Santa Fe, New Mexico. These meetings have been a great
