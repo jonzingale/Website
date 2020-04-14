@@ -46,19 +46,19 @@ header {
 .main h1 { /* give h1 names going forward, this is used for sidebar-title */
   padding-top: 0.5em;
   padding-bottom: 0.5em;
-  font-family: 'Oranienbaum';
+  /*font-family: 'Oranienbaum';*/
   font-size: 2.3em;
   color: var(--global-color-h1);
 }
 
 h2 {
-  font-family: 'Moon Light';
+  /*font-family: 'Moon Light';*/
   font-size: 1.8em;
   margin-bottom: 0.5em;
 }
 
 h3 {
-  font-family: 'Oranienbaum';
+  /*font-family: 'Oranienbaum';*/
   font-size: 1.8em;
   margin-bottom: 0.5em;
 }
@@ -97,7 +97,7 @@ footer {
 .title {
   padding-top: 0.5em;
   padding-bottom: 0.5em;
-  font-family: 'Moon Light';
+  /*font-family: 'Moon Light';*/
   font-size: 3em;
   color: var(--global-color-title);
 }
